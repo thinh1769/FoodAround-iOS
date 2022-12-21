@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,7 +35,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0934348847" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePy-iB-fwl">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0934348847" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ePy-iB-fwl">
                                     <rect key="frame" x="0.0" y="28" width="310" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="qIE-1V-v6U"/>
@@ -177,7 +178,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nguyễn Phúc Thịnh" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glZ-Uq-3S1">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nguyễn Phúc Thịnh" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="glZ-Uq-3S1">
                                     <rect key="frame" x="0.0" y="265" width="310" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="HYA-pf-TzV"/>
@@ -233,20 +234,25 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzT-65-LH0">
-                    <rect key="frame" x="20" y="57" width="34" height="34"/>
+                    <rect key="frame" x="20" y="57" width="40" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="34" id="4lE-we-NeI"/>
-                        <constraint firstAttribute="width" constant="34" id="bbm-Kl-eEH"/>
+                        <constraint firstAttribute="height" constant="40" id="4lE-we-NeI"/>
+                        <constraint firstAttribute="width" constant="40" id="bbm-Kl-eEH"/>
                     </constraints>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="arrow.left" catalog="system"/>
+                    <state key="normal" image="arrow.left" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                    </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <integer key="value" value="17"/>
+                            <integer key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onClickedBackBtn:" destination="-1" eventType="touchUpInside" id="634-mj-FxQ"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoO-ho-p27">
                     <rect key="frame" x="70" y="622" width="250" height="50"/>
@@ -256,16 +262,19 @@
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Đăng Nhập"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Đăng Ký"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <integer key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onClickedSignUpBtn:" destination="-1" eventType="touchUpInside" id="lYi-k6-54G"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="backGround"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7Fp-K2-tsB" secondAttribute="trailing" constant="20" id="EFJ-OZ-PiC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zoO-ho-p27" secondAttribute="trailing" constant="70" id="EsS-Fc-G2s"/>
@@ -281,13 +290,16 @@
                 <constraint firstItem="zoO-ho-p27" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vZd-O8-4mO"/>
                 <constraint firstItem="7Fp-K2-tsB" firstAttribute="top" secondItem="gc6-bU-CTS" secondAttribute="bottom" constant="30" id="xUK-bo-Ayi"/>
             </constraints>
-            <point key="canvasLocation" x="-518" y="-23"/>
+            <point key="canvasLocation" x="18" y="38"/>
         </view>
     </objects>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="95"/>
         <image name="eye.fill" catalog="system" width="128" height="80"/>
         <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
+        <namedColor name="backGround">
+            <color red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

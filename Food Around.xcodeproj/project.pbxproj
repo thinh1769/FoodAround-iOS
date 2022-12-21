@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B4929506A7F00B229FA /* SignUpViewController.swift */; };
 		FC8D0B4C29506A7F00B229FA /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8D0B4A29506A7F00B229FA /* SignUpViewController.xib */; };
+		FC8D0B50295157B100B229FA /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B4F295157B100B229FA /* BaseController.swift */; };
+		FC8D0B5429515D1A00B229FA /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B5229515D1A00B229FA /* OTPViewController.swift */; };
+		FC8D0B5529515D1A00B229FA /* OTPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8D0B5329515D1A00B229FA /* OTPViewController.xib */; };
 		FCA38CCC295047C500CD8832 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA38CCB295047C500CD8832 /* AppDelegate.swift */; };
 		FCA38CCE295047C500CD8832 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA38CCD295047C500CD8832 /* SceneDelegate.swift */; };
 		FCA38CD5295047C800CD8832 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA38CD4295047C800CD8832 /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		FC8D0B4929506A7F00B229FA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FC8D0B4A29506A7F00B229FA /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		FC8D0B4F295157B100B229FA /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		FC8D0B5229515D1A00B229FA /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		FC8D0B5329515D1A00B229FA /* OTPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPViewController.xib; sourceTree = "<group>"; };
 		FCA38CC8295047C500CD8832 /* Food Around.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Around.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA38CCB295047C500CD8832 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCA38CCD295047C500CD8832 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +56,23 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		FC8D0B4E2951576600B229FA /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				FC8D0B4F295157B100B229FA /* BaseController.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		FC8D0B5129515CFD00B229FA /* OTP */ = {
+			isa = PBXGroup;
+			children = (
+				FC8D0B5229515D1A00B229FA /* OTPViewController.swift */,
+				FC8D0B5329515D1A00B229FA /* OTPViewController.xib */,
+			);
+			name = OTP;
+			sourceTree = "<group>";
+		};
 		FCA38CBF295047C500CD8832 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +94,7 @@
 			children = (
 				FCA38CE029504B2300CD8832 /* Application */,
 				FCA38CDF29504B0600CD8832 /* Modules */,
+				FC8D0B4E2951576600B229FA /* Supports */,
 				FCA38CD9295047C800CD8832 /* Info.plist */,
 			);
 			path = "Food Around";
@@ -81,6 +105,7 @@
 			children = (
 				FCA38CE529504B6C00CD8832 /* SignIn */,
 				FC8D0B4D29506A8500B229FA /* SignUp */,
+				FC8D0B5129515CFD00B229FA /* OTP */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -167,6 +192,7 @@
 				FCA38CE429504B6800CD8832 /* SignInViewController.xib in Resources */,
 				FC8D0B4C29506A7F00B229FA /* SignUpViewController.xib in Resources */,
 				FCA38CD5295047C800CD8832 /* Assets.xcassets in Resources */,
+				FC8D0B5529515D1A00B229FA /* OTPViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +203,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC8D0B5429515D1A00B229FA /* OTPViewController.swift in Sources */,
+				FC8D0B50295157B100B229FA /* BaseController.swift in Sources */,
 				FCA38CCC295047C500CD8832 /* AppDelegate.swift in Sources */,
 				FCA38CCE295047C500CD8832 /* SceneDelegate.swift in Sources */,
 				FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */,

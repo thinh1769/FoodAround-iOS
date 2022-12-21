@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +15,15 @@ class SignInViewController: UIViewController {
     }
     
     private func setupUI() {
-        self.navigationController?.isNavigationBarHidden = true
+        isEnabledTouchDismissKeyboard = true
     }
 
+    @IBAction func onClickedSignUpBtn(_ sender: UIButton) {
+        navigateTo(SignUpViewController())
+    }
+    
+    @IBAction func onClickedForgotPasswordBtn(_ sender: UIButton) {
+        navigateTo(OTPViewController())
+    }
+    
 }
