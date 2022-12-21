@@ -26,4 +26,7 @@ class SignInViewController: BaseController {
         navigateTo(OTPViewController())
     }
     
+    @IBAction func onClickedSignInBtn(_ sender: UIButton) {
+        navigateTo(HomeViewController())
+    }
 }

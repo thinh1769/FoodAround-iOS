@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Food_Around" customModuleProvider="target">
+            <connections>
+                <outlet property="mapView" destination="ymY-FA-tFc" id="GZj-i7-qVo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ymY-FA-tFc">
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <standardMapConfiguration key="preferredConfiguration"/>
+                </mapView>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WCy-aa-ptL">
+                    <rect key="frame" x="30" y="67" width="330" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="vpj-Yn-F53"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5C-of-PIC">
+                    <rect key="frame" x="30" y="67" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Rip-89-Nyg"/>
+                        <constraint firstAttribute="width" constant="40" id="v8O-A5-dji"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="arrow.backward" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="onClickedBackBtn:" destination="-1" eventType="touchUpInside" id="0qi-gl-uCA"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ymY-FA-tFc" secondAttribute="bottom" id="665-cG-3pw"/>
+                <constraint firstItem="P5C-of-PIC" firstAttribute="top" secondItem="WCy-aa-ptL" secondAttribute="top" id="70l-Xy-fIV"/>
+                <constraint firstItem="WCy-aa-ptL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="DH9-ed-s2R"/>
+                <constraint firstItem="P5C-of-PIC" firstAttribute="leading" secondItem="WCy-aa-ptL" secondAttribute="leading" id="MdE-g7-Cy3"/>
+                <constraint firstItem="ymY-FA-tFc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="acB-uG-V5M"/>
+                <constraint firstItem="WCy-aa-ptL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="fqK-c0-Hcz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WCy-aa-ptL" secondAttribute="trailing" constant="30" id="goo-xh-awK"/>
+                <constraint firstItem="ymY-FA-tFc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kSD-8R-3la"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ymY-FA-tFc" secondAttribute="trailing" id="nNJ-l6-7ki"/>
+            </constraints>
+            <point key="canvasLocation" x="94" y="25"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="95"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

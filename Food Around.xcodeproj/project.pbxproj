@@ -3,15 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FB39B748D361A434EFFB049 /* Pods_Food_Around.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7C9510311AD532F81DB6C1 /* Pods_Food_Around.framework */; };
 		FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B4929506A7F00B229FA /* SignUpViewController.swift */; };
 		FC8D0B4C29506A7F00B229FA /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8D0B4A29506A7F00B229FA /* SignUpViewController.xib */; };
 		FC8D0B50295157B100B229FA /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B4F295157B100B229FA /* BaseController.swift */; };
 		FC8D0B5429515D1A00B229FA /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B5229515D1A00B229FA /* OTPViewController.swift */; };
 		FC8D0B5529515D1A00B229FA /* OTPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8D0B5329515D1A00B229FA /* OTPViewController.xib */; };
+		FC8D0B592952ACF500B229FA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B572952ACF500B229FA /* HomeViewController.swift */; };
+		FC8D0B5A2952ACF500B229FA /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8D0B582952ACF500B229FA /* HomeViewController.xib */; };
+		FC8D0B5D2952B5A700B229FA /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B5C2952B5A700B229FA /* CommonConstants.swift */; };
 		FCA38CCC295047C500CD8832 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA38CCB295047C500CD8832 /* AppDelegate.swift */; };
 		FCA38CCE295047C500CD8832 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA38CCD295047C500CD8832 /* SceneDelegate.swift */; };
 		FCA38CD5295047C800CD8832 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA38CD4295047C800CD8832 /* Assets.xcassets */; };
@@ -21,11 +25,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D7C9510311AD532F81DB6C1 /* Pods_Food_Around.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_Around.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		699C59006C6AA96194B49B92 /* Pods-Food Around.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Around.release.xcconfig"; path = "Target Support Files/Pods-Food Around/Pods-Food Around.release.xcconfig"; sourceTree = "<group>"; };
+		6EBE40A509065DE69B1C928C /* Pods-Food Around.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Around.debug.xcconfig"; path = "Target Support Files/Pods-Food Around/Pods-Food Around.debug.xcconfig"; sourceTree = "<group>"; };
 		FC8D0B4929506A7F00B229FA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FC8D0B4A29506A7F00B229FA /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		FC8D0B4F295157B100B229FA /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		FC8D0B5229515D1A00B229FA /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		FC8D0B5329515D1A00B229FA /* OTPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPViewController.xib; sourceTree = "<group>"; };
+		FC8D0B572952ACF500B229FA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FC8D0B582952ACF500B229FA /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		FC8D0B5C2952B5A700B229FA /* CommonConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConstants.swift; sourceTree = "<group>"; };
 		FCA38CC8295047C500CD8832 /* Food Around.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Around.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA38CCB295047C500CD8832 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCA38CCD295047C500CD8832 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,12 +51,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB39B748D361A434EFFB049 /* Pods_Food_Around.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E842558E4F8C0AB322B0C07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D7C9510311AD532F81DB6C1 /* Pods_Food_Around.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C55B3529DFCE47D169235DF5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6EBE40A509065DE69B1C928C /* Pods-Food Around.debug.xcconfig */,
+				699C59006C6AA96194B49B92 /* Pods-Food Around.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FC8D0B4D29506A8500B229FA /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,11 +101,30 @@
 			name = OTP;
 			sourceTree = "<group>";
 		};
+		FC8D0B562952ACD600B229FA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FC8D0B572952ACF500B229FA /* HomeViewController.swift */,
+				FC8D0B582952ACF500B229FA /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FC8D0B5B2952B59400B229FA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				FC8D0B5C2952B5A700B229FA /* CommonConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		FCA38CBF295047C500CD8832 = {
 			isa = PBXGroup;
 			children = (
 				FCA38CCA295047C500CD8832 /* Food Around */,
 				FCA38CC9295047C500CD8832 /* Products */,
+				C55B3529DFCE47D169235DF5 /* Pods */,
+				9E842558E4F8C0AB322B0C07 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				FCA38CE029504B2300CD8832 /* Application */,
+				FC8D0B5B2952B59400B229FA /* Constants */,
 				FCA38CDF29504B0600CD8832 /* Modules */,
 				FC8D0B4E2951576600B229FA /* Supports */,
 				FCA38CD9295047C800CD8832 /* Info.plist */,
@@ -106,6 +154,7 @@
 				FCA38CE529504B6C00CD8832 /* SignIn */,
 				FC8D0B4D29506A8500B229FA /* SignUp */,
 				FC8D0B5129515CFD00B229FA /* OTP */,
+				FC8D0B562952ACD600B229FA /* Home */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -137,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCA38CDC295047C800CD8832 /* Build configuration list for PBXNativeTarget "Food Around" */;
 			buildPhases = (
+				FA57D3F5B634C61C2305532E /* [CP] Check Pods Manifest.lock */,
 				FCA38CC4295047C500CD8832 /* Sources */,
 				FCA38CC5295047C500CD8832 /* Frameworks */,
 				FCA38CC6295047C500CD8832 /* Resources */,
+				414821ACCD0E229F24D2C04F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -166,7 +217,7 @@
 				};
 			};
 			buildConfigurationList = FCA38CC3295047C500CD8832 /* Build configuration list for PBXProject "Food Around" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -193,10 +244,53 @@
 				FC8D0B4C29506A7F00B229FA /* SignUpViewController.xib in Resources */,
 				FCA38CD5295047C800CD8832 /* Assets.xcassets in Resources */,
 				FC8D0B5529515D1A00B229FA /* OTPViewController.xib in Resources */,
+				FC8D0B5A2952ACF500B229FA /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		414821ACCD0E229F24D2C04F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Food Around/Pods-Food Around-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Food Around/Pods-Food Around-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Food Around/Pods-Food Around-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA57D3F5B634C61C2305532E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Food Around-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FCA38CC4295047C500CD8832 /* Sources */ = {
@@ -208,6 +302,8 @@
 				FCA38CCC295047C500CD8832 /* AppDelegate.swift in Sources */,
 				FCA38CCE295047C500CD8832 /* SceneDelegate.swift in Sources */,
 				FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */,
+				FC8D0B5D2952B5A700B229FA /* CommonConstants.swift in Sources */,
+				FC8D0B592952ACF500B229FA /* HomeViewController.swift in Sources */,
 				FCA38CE329504B6800CD8832 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +438,7 @@
 		};
 		FCA38CDD295047C800CD8832 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EBE40A509065DE69B1C928C /* Pods-Food Around.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -370,6 +467,7 @@
 		};
 		FCA38CDE295047C800CD8832 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 699C59006C6AA96194B49B92 /* Pods-Food Around.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

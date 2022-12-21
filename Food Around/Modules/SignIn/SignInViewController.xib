@@ -157,6 +157,9 @@
                             <integer key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onClickedSignInBtn:" destination="-1" eventType="touchUpInside" id="zBW-vN-5ES"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwo-EG-x1T">
                     <rect key="frame" x="10" y="537" width="370" height="50"/>
@@ -212,14 +215,14 @@
                 <constraint firstAttribute="trailing" secondItem="hwo-EG-x1T" secondAttribute="trailing" constant="10" id="lfs-xK-oa5"/>
                 <constraint firstItem="EXw-8J-pYq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="oif-eC-pjG"/>
             </constraints>
-            <point key="canvasLocation" x="-535" y="1"/>
+            <point key="canvasLocation" x="262" y="46"/>
         </view>
     </objects>
     <resources>
         <image name="eye.fill" catalog="system" width="128" height="80"/>
         <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
         <namedColor name="backGround">
-            <color red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.87099999189376831" green="0.87099999189376831" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
