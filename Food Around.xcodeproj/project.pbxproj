@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1FB39B748D361A434EFFB049 /* Pods_Food_Around.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7C9510311AD532F81DB6C1 /* Pods_Food_Around.framework */; };
+		FC788E5E29545CA100425AB7 /* LocationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC788E5C29545CA100425AB7 /* LocationFormViewController.swift */; };
+		FC788E5F29545CA100425AB7 /* LocationFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC788E5D29545CA100425AB7 /* LocationFormViewController.xib */; };
 		FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B4929506A7F00B229FA /* SignUpViewController.swift */; };
 		FC8D0B4C29506A7F00B229FA /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8D0B4A29506A7F00B229FA /* SignUpViewController.xib */; };
 		FC8D0B50295157B100B229FA /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B4F295157B100B229FA /* BaseController.swift */; };
@@ -28,6 +30,8 @@
 		3D7C9510311AD532F81DB6C1 /* Pods_Food_Around.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_Around.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		699C59006C6AA96194B49B92 /* Pods-Food Around.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Around.release.xcconfig"; path = "Target Support Files/Pods-Food Around/Pods-Food Around.release.xcconfig"; sourceTree = "<group>"; };
 		6EBE40A509065DE69B1C928C /* Pods-Food Around.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Around.debug.xcconfig"; path = "Target Support Files/Pods-Food Around/Pods-Food Around.debug.xcconfig"; sourceTree = "<group>"; };
+		FC788E5C29545CA100425AB7 /* LocationFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormViewController.swift; sourceTree = "<group>"; };
+		FC788E5D29545CA100425AB7 /* LocationFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationFormViewController.xib; sourceTree = "<group>"; };
 		FC8D0B4929506A7F00B229FA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FC8D0B4A29506A7F00B229FA /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		FC8D0B4F295157B100B229FA /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,22 @@
 				699C59006C6AA96194B49B92 /* Pods-Food Around.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FC788E56295405C400425AB7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FC788E5B29545BCD00425AB7 /* LocationForm */ = {
+			isa = PBXGroup;
+			children = (
+				FC788E5C29545CA100425AB7 /* LocationFormViewController.swift */,
+				FC788E5D29545CA100425AB7 /* LocationFormViewController.xib */,
+			);
+			path = LocationForm;
 			sourceTree = "<group>";
 		};
 		FC8D0B4D29506A8500B229FA /* SignUp */ = {
@@ -141,6 +161,7 @@
 			children = (
 				FCA38CE029504B2300CD8832 /* Application */,
 				FC8D0B5B2952B59400B229FA /* Constants */,
+				FC788E56295405C400425AB7 /* Extensions */,
 				FCA38CDF29504B0600CD8832 /* Modules */,
 				FC8D0B4E2951576600B229FA /* Supports */,
 				FCA38CD9295047C800CD8832 /* Info.plist */,
@@ -155,6 +176,7 @@
 				FC8D0B4D29506A8500B229FA /* SignUp */,
 				FC8D0B5129515CFD00B229FA /* OTP */,
 				FC8D0B562952ACD600B229FA /* Home */,
+				FC788E5B29545BCD00425AB7 /* LocationForm */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -245,6 +267,7 @@
 				FCA38CD5295047C800CD8832 /* Assets.xcassets in Resources */,
 				FC8D0B5529515D1A00B229FA /* OTPViewController.xib in Resources */,
 				FC8D0B5A2952ACF500B229FA /* HomeViewController.xib in Resources */,
+				FC788E5F29545CA100425AB7 /* LocationFormViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +327,7 @@
 				FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */,
 				FC8D0B5D2952B5A700B229FA /* CommonConstants.swift in Sources */,
 				FC8D0B592952ACF500B229FA /* HomeViewController.swift in Sources */,
+				FC788E5E29545CA100425AB7 /* LocationFormViewController.swift in Sources */,
 				FCA38CE329504B6800CD8832 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
