@@ -8,25 +8,28 @@
 import UIKit
 import MapKit
 import CoreLocation
+import RxSwift
+import RxCocoa
 
 class HomeViewController: BaseController {
 
+    @IBOutlet private weak var currentLocationBtn: UIButton!
+    @IBOutlet private weak var searchTextField: UITextField!
     @IBOutlet private weak var pinNewLocationBtn: UIButton!
     @IBOutlet private weak var cancelBtn: UIButton!
     @IBOutlet private weak var addNewLocationBtn: UIButton!
     @IBOutlet private weak var pinNewLocationImage: UIImageView!
     @IBOutlet private weak var searchView: UIView!
     @IBOutlet private weak var mapView: MKMapView!
-    @IBOutlet private weak var currentLocationBtnBottomAnchor: NSLayoutConstraint!
+    
+    private var viewModel = HomeViewModel()
     private var locationManager = CLLocationManager()
     
     override func viewWillAppear(_ animated: Bool) {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        pinNewLocationImage.isHidden = true
-        addNewLocationBtn.isHidden = true
-        cancelBtn.isHidden = true
+        hidePinNewLocation(true)
     }
     
     override func viewDidLoad() {
@@ -37,6 +40,38 @@ class HomeViewController: BaseController {
     private func setupUI() {
         isEnabledTouchDismissKeyboard = true
         mapView.delegate = self
+        searchTextField.rx.controlEvent([.editingChanged]).subscribe { [weak self] _ in
+            guard let self = self else { return }
+            if self.searchTextField.text?.count != 0 {
+                self.mapView.isHidden = true
+                self.pinNewLocationBtn.isHidden = true
+                self.currentLocationBtn.isHidden = true
+            } else {
+                self.mapView.isHidden = false
+                self.pinNewLocationBtn.isHidden = false
+                self.currentLocationBtn.isHidden = false
+            }
+        }.disposed(by: viewModel.bag)
+        
+        searchView.layer.masksToBounds = false
+        searchView.layer.borderColor = UIColor.lightGray.cgColor
+        searchView.layer.borderWidth = 1
+        searchView.layer.cornerRadius = 25
+        
+        currentLocationBtn.layer.masksToBounds = false
+        currentLocationBtn.layer.borderColor = UIColor.lightGray.cgColor
+        currentLocationBtn.layer.borderWidth = 1
+        currentLocationBtn.layer.cornerRadius = 25
+        
+        cancelBtn.layer.masksToBounds = false
+        cancelBtn.layer.borderColor = UIColor.lightGray.cgColor
+        cancelBtn.layer.borderWidth = 1
+        cancelBtn.layer.cornerRadius = 25
+        
+        pinNewLocationBtn.layer.masksToBounds = false
+        pinNewLocationBtn.layer.borderColor = UIColor.lightGray.cgColor
+        pinNewLocationBtn.layer.borderWidth = 1
+        pinNewLocationBtn.layer.cornerRadius = 25
     }
 
     @IBAction func onClickedBackBtn(_ sender: UIButton) {
@@ -52,7 +87,7 @@ class HomeViewController: BaseController {
     }
     
     @IBAction func onClickedAddNewLocation(_ sender: UIButton) {
-        
+        navigateTo(LocationFormViewController())
     }
     
     @IBAction func onClickedCancelBtn(_ sender: UIButton) {
@@ -65,12 +100,6 @@ class HomeViewController: BaseController {
         pinNewLocationImage.isHidden = isShow
         addNewLocationBtn.isHidden = isShow
         cancelBtn.isHidden = isShow
-        if isShow {
-            currentLocationBtnBottomAnchor.constant -= 50
-        } else {
-            currentLocationBtnBottomAnchor.constant += 50
-        }
-        
     }
     
 }
@@ -121,7 +150,7 @@ extension HomeViewController: MKMapViewDelegate {
         } else {
             annotationView?.annotation = annotation
         }
-        annotationView?.image = UIImage(systemName: "circle.inset.filled")
+        annotationView?.image = UIImage(named: "circle.inset.filled")
         return annotationView
     }
 }

@@ -7,12 +7,20 @@
 
 import UIKit
 
-class LocationFormViewController: UIViewController {
+class LocationFormViewController: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupUI()
         
     }
 
+    private func setupUI() {
+        isEnabledTouchDismissKeyboard = true
+    }
+    
+    @IBAction func onClickedBackBtn(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }

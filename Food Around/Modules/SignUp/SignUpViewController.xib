@@ -20,10 +20,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Fp-K2-tsB" userLabel="formView">
-                    <rect key="frame" x="20" y="267" width="350" height="335"/>
+                    <rect key="frame" x="20" y="257" width="350" height="335"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="oNg-L1-dFH" userLabel="formStackView">
-                            <rect key="frame" x="20" y="20" width="310" height="300"/>
+                            <rect key="frame" x="20" y="20" width="310" height="296"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Số điện thoại" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myj-vy-Gqc" userLabel="phoneLabel">
                                     <rect key="frame" x="0.0" y="0.0" width="310" height="25"/>
@@ -44,10 +44,10 @@
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Em-Bw-QiO" userLabel="separatorView">
-                                    <rect key="frame" x="0.0" y="61" width="310" height="2"/>
+                                    <rect key="frame" x="0.0" y="61" width="310" height="1"/>
                                     <color key="backgroundColor" red="0.12946695089999999" green="0.28761541839999999" blue="0.066560842100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="2" id="BK9-6A-WJI"/>
+                                        <constraint firstAttribute="height" constant="1" id="BK9-6A-WJI"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -56,14 +56,14 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rm-dF-qZQ" userLabel="separatorView">
-                                    <rect key="frame" x="0.0" y="66" width="310" height="10"/>
+                                    <rect key="frame" x="0.0" y="65" width="310" height="10"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="15y-Yi-iYP"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mật khẩu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhV-w5-ZTO" userLabel="passwordLabel">
-                                    <rect key="frame" x="0.0" y="79" width="310" height="25"/>
+                                    <rect key="frame" x="0.0" y="78" width="310" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="N4N-P1-ldC"/>
                                     </constraints>
@@ -72,7 +72,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="GxQ-UC-x0B" userLabel="passwordStackView">
-                                    <rect key="frame" x="0.0" y="107" width="310" height="30"/>
+                                    <rect key="frame" x="0.0" y="106" width="310" height="30"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="xxxxxxxx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h8N-Ml-vx5" userLabel="passwordTextField">
                                             <rect key="frame" x="0.0" y="0.0" width="278" height="30"/>
@@ -98,10 +98,10 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bR8-qa-4BF" userLabel="separatorView">
-                                    <rect key="frame" x="0.0" y="140" width="310" height="2"/>
+                                    <rect key="frame" x="0.0" y="139" width="310" height="1"/>
                                     <color key="backgroundColor" red="0.12946695089999999" green="0.28761541839999999" blue="0.066560842100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="2" id="RoN-Gg-GEC"/>
+                                        <constraint firstAttribute="height" constant="1" id="RoN-Gg-GEC"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -110,14 +110,14 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucv-96-jt0" userLabel="separatorView">
-                                    <rect key="frame" x="0.0" y="145" width="310" height="10"/>
+                                    <rect key="frame" x="0.0" y="143" width="310" height="10"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="VfF-AZ-c6E"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhập lại mật khẩu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGD-sx-L8I" userLabel="confirmPassLabel">
-                                    <rect key="frame" x="0.0" y="158" width="310" height="25"/>
+                                    <rect key="frame" x="0.0" y="156" width="310" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="3sF-Nw-8lO"/>
                                     </constraints>
@@ -126,7 +126,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LyL-Ch-SWF" userLabel="confirmPassStackView">
-                                    <rect key="frame" x="0.0" y="186" width="310" height="30"/>
+                                    <rect key="frame" x="0.0" y="184" width="310" height="30"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="xxxxxxxx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="itD-cp-Cdw" userLabel="confirmPassTextField">
                                             <rect key="frame" x="0.0" y="0.0" width="278" height="30"/>
@@ -152,10 +152,10 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qh6-7Q-neC" userLabel="separatorView">
-                                    <rect key="frame" x="0.0" y="219" width="310" height="2"/>
+                                    <rect key="frame" x="0.0" y="217" width="310" height="1"/>
                                     <color key="backgroundColor" red="0.12946695089999999" green="0.28761541839999999" blue="0.066560842100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="2" id="uKv-Jd-Cls"/>
+                                        <constraint firstAttribute="height" constant="1" id="uKv-Jd-Cls"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -164,14 +164,14 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxe-11-flb" userLabel="separatorView">
-                                    <rect key="frame" x="0.0" y="224" width="310" height="10"/>
+                                    <rect key="frame" x="0.0" y="221" width="310" height="10"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="CGn-KF-9aU"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Họ tên" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kn3-a2-Pa1" userLabel="nameLabel">
-                                    <rect key="frame" x="0.0" y="237" width="310" height="25"/>
+                                    <rect key="frame" x="0.0" y="234" width="310" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="6cm-V3-Mg7"/>
                                     </constraints>
@@ -180,7 +180,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nguyễn Phúc Thịnh" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="glZ-Uq-3S1" userLabel="nameTextField">
-                                    <rect key="frame" x="0.0" y="265" width="310" height="30"/>
+                                    <rect key="frame" x="0.0" y="262" width="310" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="HYA-pf-TzV"/>
                                     </constraints>
@@ -189,10 +189,10 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3P-xd-Xmr" userLabel="separatorView">
-                                    <rect key="frame" x="0.0" y="298" width="310" height="2"/>
+                                    <rect key="frame" x="0.0" y="295" width="310" height="1"/>
                                     <color key="backgroundColor" red="0.12946695089999999" green="0.28761541839999999" blue="0.066560842100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="2" id="o1a-8g-2cn"/>
+                                        <constraint firstAttribute="height" constant="1" id="o1a-8g-2cn"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -243,7 +243,7 @@
                     </constraints>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="arrow.left" catalog="system">
+                    <state key="normal" image="chevron.backward" catalog="system">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="large"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -256,7 +256,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoO-ho-p27" userLabel="signUpBtn">
-                    <rect key="frame" x="70" y="622" width="250" height="50"/>
+                    <rect key="frame" x="70" y="612" width="250" height="50"/>
                     <color key="backgroundColor" red="0.14556029440000001" green="0.31911915540000002" blue="0.074389316139999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="73R-vI-z8I"/>
@@ -289,13 +289,13 @@
                 <constraint firstItem="zoO-ho-p27" firstAttribute="top" secondItem="7Fp-K2-tsB" secondAttribute="bottom" constant="20" id="it3-PF-Fkq"/>
                 <constraint firstItem="3Rd-F5-E30" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mwi-sE-6Ud"/>
                 <constraint firstItem="zoO-ho-p27" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vZd-O8-4mO"/>
-                <constraint firstItem="7Fp-K2-tsB" firstAttribute="top" secondItem="gc6-bU-CTS" secondAttribute="bottom" constant="30" id="xUK-bo-Ayi"/>
+                <constraint firstItem="7Fp-K2-tsB" firstAttribute="top" secondItem="gc6-bU-CTS" secondAttribute="bottom" constant="20" id="xUK-bo-Ayi"/>
             </constraints>
-            <point key="canvasLocation" x="235" y="15"/>
+            <point key="canvasLocation" x="388" y="13"/>
         </view>
     </objects>
     <resources>
-        <image name="arrow.left" catalog="system" width="128" height="95"/>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="eye.fill" catalog="system" width="128" height="80"/>
         <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
         <namedColor name="backGround">

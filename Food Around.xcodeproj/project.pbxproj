@@ -10,6 +10,7 @@
 		1FB39B748D361A434EFFB049 /* Pods_Food_Around.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7C9510311AD532F81DB6C1 /* Pods_Food_Around.framework */; };
 		FC788E5E29545CA100425AB7 /* LocationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC788E5C29545CA100425AB7 /* LocationFormViewController.swift */; };
 		FC788E5F29545CA100425AB7 /* LocationFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC788E5D29545CA100425AB7 /* LocationFormViewController.xib */; };
+		FC788E612955B1A500425AB7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC788E602955B1A400425AB7 /* HomeViewModel.swift */; };
 		FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B4929506A7F00B229FA /* SignUpViewController.swift */; };
 		FC8D0B4C29506A7F00B229FA /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8D0B4A29506A7F00B229FA /* SignUpViewController.xib */; };
 		FC8D0B50295157B100B229FA /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D0B4F295157B100B229FA /* BaseController.swift */; };
@@ -32,6 +33,7 @@
 		6EBE40A509065DE69B1C928C /* Pods-Food Around.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Around.debug.xcconfig"; path = "Target Support Files/Pods-Food Around/Pods-Food Around.debug.xcconfig"; sourceTree = "<group>"; };
 		FC788E5C29545CA100425AB7 /* LocationFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormViewController.swift; sourceTree = "<group>"; };
 		FC788E5D29545CA100425AB7 /* LocationFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationFormViewController.xib; sourceTree = "<group>"; };
+		FC788E602955B1A400425AB7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FC8D0B4929506A7F00B229FA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FC8D0B4A29506A7F00B229FA /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		FC8D0B4F295157B100B229FA /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				FC8D0B572952ACF500B229FA /* HomeViewController.swift */,
+				FC788E602955B1A400425AB7 /* HomeViewModel.swift */,
 				FC8D0B582952ACF500B229FA /* HomeViewController.xib */,
 			);
 			path = Home;
@@ -323,6 +326,7 @@
 				FC8D0B5429515D1A00B229FA /* OTPViewController.swift in Sources */,
 				FC8D0B50295157B100B229FA /* BaseController.swift in Sources */,
 				FCA38CCC295047C500CD8832 /* AppDelegate.swift in Sources */,
+				FC788E612955B1A500425AB7 /* HomeViewModel.swift in Sources */,
 				FCA38CCE295047C500CD8832 /* SceneDelegate.swift in Sources */,
 				FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */,
 				FC8D0B5D2952B5A700B229FA /* CommonConstants.swift in Sources */,
