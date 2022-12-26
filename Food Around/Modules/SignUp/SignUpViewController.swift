@@ -9,6 +9,9 @@ import UIKit
 
 class SignUpViewController: BaseController {
 
+    @IBOutlet private weak var confirmPassTextField: UITextField!
+    @IBOutlet private weak var nameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

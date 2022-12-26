@@ -72,6 +72,7 @@ class HomeViewController: BaseController {
         pinNewLocationBtn.layer.borderColor = UIColor.lightGray.cgColor
         pinNewLocationBtn.layer.borderWidth = 1
         pinNewLocationBtn.layer.cornerRadius = 25
+        
     }
 
     @IBAction func onClickedBackBtn(_ sender: UIButton) {
@@ -87,7 +88,10 @@ class HomeViewController: BaseController {
     }
     
     @IBAction func onClickedAddNewLocation(_ sender: UIButton) {
-        navigateTo(LocationFormViewController())
+        let center = mapView.centerCoordinate
+        let vc = LocationFormViewController()
+        vc.config(formType: FormType.ADD_NEW_LOCATION_TYPE, lat: center.latitude, long: center.longitude)
+        navigateTo(vc)
     }
     
     @IBAction func onClickedCancelBtn(_ sender: UIButton) {

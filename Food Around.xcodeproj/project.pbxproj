@@ -25,6 +25,8 @@
 		FCA38CD8295047C800CD8832 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA38CD6295047C800CD8832 /* LaunchScreen.storyboard */; };
 		FCA38CE329504B6800CD8832 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA38CE129504B6800CD8832 /* SignInViewController.swift */; };
 		FCA38CE429504B6800CD8832 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA38CE229504B6800CD8832 /* SignInViewController.xib */; };
+		FCB661B0295944CF00ABB8A8 /* LocationFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661AF295944CF00ABB8A8 /* LocationFormViewModel.swift */; };
+		FCB661B22959790200ABB8A8 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661B12959790200ABB8A8 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		FCA38CD9295047C800CD8832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCA38CE129504B6800CD8832 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FCA38CE229504B6800CD8832 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		FCB661AF295944CF00ABB8A8 /* LocationFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormViewModel.swift; sourceTree = "<group>"; };
+		FCB661B12959790200ABB8A8 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		FC788E56295405C400425AB7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FCB661B12959790200ABB8A8 /* CustomTextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				FC788E5C29545CA100425AB7 /* LocationFormViewController.swift */,
+				FCB661AF295944CF00ABB8A8 /* LocationFormViewModel.swift */,
 				FC788E5D29545CA100425AB7 /* LocationFormViewController.xib */,
 			);
 			path = LocationForm;
@@ -328,8 +334,10 @@
 				FCA38CCC295047C500CD8832 /* AppDelegate.swift in Sources */,
 				FC788E612955B1A500425AB7 /* HomeViewModel.swift in Sources */,
 				FCA38CCE295047C500CD8832 /* SceneDelegate.swift in Sources */,
+				FCB661B0295944CF00ABB8A8 /* LocationFormViewModel.swift in Sources */,
 				FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */,
 				FC8D0B5D2952B5A700B229FA /* CommonConstants.swift in Sources */,
+				FCB661B22959790200ABB8A8 /* CustomTextField.swift in Sources */,
 				FC8D0B592952ACF500B229FA /* HomeViewController.swift in Sources */,
 				FC788E5E29545CA100425AB7 /* LocationFormViewController.swift in Sources */,
 				FCA38CE329504B6800CD8832 /* SignInViewController.swift in Sources */,
