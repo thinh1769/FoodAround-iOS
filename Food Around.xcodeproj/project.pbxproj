@@ -38,6 +38,9 @@
 		FCB661C8295C1DE900ABB8A8 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661C6295C1DE900ABB8A8 /* UserInfoViewController.swift */; };
 		FCB661C9295C1DE900ABB8A8 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB661C7295C1DE900ABB8A8 /* UserInfoViewController.xib */; };
 		FCB661CB295C238600ABB8A8 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661CA295C238600ABB8A8 /* UserInfoViewModel.swift */; };
+		FCB661CD295C3B8300ABB8A8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661CC295C3B8300ABB8A8 /* Location.swift */; };
+		FCB661CF295C3ECF00ABB8A8 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661CE295C3ECF00ABB8A8 /* LocationService.swift */; };
+		FCB661D1295C478200ABB8A8 /* HTTPMethod+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661D0295C478200ABB8A8 /* HTTPMethod+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		FCB661C6295C1DE900ABB8A8 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		FCB661C7295C1DE900ABB8A8 /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		FCB661CA295C238600ABB8A8 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
+		FCB661CC295C3B8300ABB8A8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		FCB661CE295C3ECF00ABB8A8 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		FCB661D0295C478200ABB8A8 /* HTTPMethod+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPMethod+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,7 @@
 			children = (
 				FCB661B12959790200ABB8A8 /* CustomTextField.swift */,
 				FCB661B6295A99CF00ABB8A8 /* UserDefaults+Ext.swift */,
+				FCB661D0295C478200ABB8A8 /* HTTPMethod+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -244,6 +251,7 @@
 			children = (
 				FCB661B4295A91E000ABB8A8 /* BaseService.swift */,
 				FCB661BF295AC58500ABB8A8 /* AuthService.swift */,
+				FCB661CE295C3ECF00ABB8A8 /* LocationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -253,6 +261,7 @@
 			children = (
 				FCB661B9295A9CAA00ABB8A8 /* UserInfo.swift */,
 				FCB661BB295AA06800ABB8A8 /* ResponseMain.swift */,
+				FCB661CC295C3B8300ABB8A8 /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -394,13 +403,16 @@
 				FCB661C0295AC58500ABB8A8 /* AuthService.swift in Sources */,
 				FCB661CB295C238600ABB8A8 /* UserInfoViewModel.swift in Sources */,
 				FCB661C4295BDA7D00ABB8A8 /* SignInViewModel.swift in Sources */,
+				FCB661D1295C478200ABB8A8 /* HTTPMethod+Ext.swift in Sources */,
 				FCA38CCC295047C500CD8832 /* AppDelegate.swift in Sources */,
 				FCB661C2295AC77A00ABB8A8 /* SignUpViewModel.swift in Sources */,
 				FCB661BE295AA12200ABB8A8 /* ServiceConstants.swift in Sources */,
+				FCB661CF295C3ECF00ABB8A8 /* LocationService.swift in Sources */,
 				FC788E612955B1A500425AB7 /* HomeViewModel.swift in Sources */,
 				FCA38CCE295047C500CD8832 /* SceneDelegate.swift in Sources */,
 				FCB661B0295944CF00ABB8A8 /* LocationFormViewModel.swift in Sources */,
 				FCB661B7295A99CF00ABB8A8 /* UserDefaults+Ext.swift in Sources */,
+				FCB661CD295C3B8300ABB8A8 /* Location.swift in Sources */,
 				FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */,
 				FCB661B5295A91E000ABB8A8 /* BaseService.swift in Sources */,
 				FC8D0B5D2952B5A700B229FA /* CommonConstants.swift in Sources */,

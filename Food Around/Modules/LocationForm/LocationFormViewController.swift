@@ -11,6 +11,7 @@ import RxCocoa
 
 class LocationFormViewController: BaseController {
 
+    @IBOutlet private weak var nameLocationTextField: UITextField!
     @IBOutlet private weak var formTitle: UILabel!
     @IBOutlet private weak var locationTypeTextField: CustomTextField!
     @IBOutlet private weak var cityTextField: CustomTextField!
@@ -60,6 +61,17 @@ class LocationFormViewController: BaseController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func onClickedSaveBtn(_ sender: UIButton) {
+        viewModel.nameLocation = nameLocationTextField.text!
+        viewModel.addressStreet = addressStreetTextField.text!
+        viewModel.note = noteTextView.text!
+        
+        viewModel.addLocation(Location(type: viewModel.locationType.value[viewModel.selectedLocationType], address: viewModel.addressStreet, city: viewModel.city.value[viewModel.selectedCity], district: viewModel.district.value[viewModel.selectedDistrict], ward: viewModel.ward.value[viewModel.selectedWard], note: viewModel.note, lat: viewModel.lat, long: viewModel.long))
+            .subscribe { location in
+                print("Thêm địa điểm thành công----------------------------------------")
+            }.disposed(by: viewModel.bag)
+    }
+    
     @objc private func donePicker(sender: UIBarButtonItem) {
         switch sender.tag {
         case PickerTag.LOCATION_TYPE:
@@ -106,11 +118,11 @@ class LocationFormViewController: BaseController {
         cityPicker.tag = PickerTag.CITY
         cityTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.CITY)
         
-        viewModel.city.accept(CommonConstants.LOCATION_TYPE)
+//        viewModel.city.accept(CommonConstants.LOCATION_TYPE)
         
         viewModel.city.subscribe(on: MainScheduler.instance)
             .bind(to: cityPicker.rx.itemTitles) { (row, element) in
-                return element
+                return element.name
             }.disposed(by: viewModel.bag)
         
         cityPicker.rx.itemSelected.bind { (row: Int, component: Int) in
@@ -125,11 +137,11 @@ class LocationFormViewController: BaseController {
         districtPicker.tag = PickerTag.DISTRICT
         districtTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.DISTRICT)
         
-        viewModel.district.accept(CommonConstants.LOCATION_TYPE)
+//        viewModel.district.accept(CommonConstants.LOCATION_TYPE)
         
         viewModel.district.subscribe(on: MainScheduler.instance)
             .bind(to: districtPicker.rx.itemTitles) { (row, element) in
-                return element
+                return element.name
             }.disposed(by: viewModel.bag)
         
         districtPicker.rx.itemSelected.bind { (row: Int, component: Int) in
@@ -144,11 +156,11 @@ class LocationFormViewController: BaseController {
         wardPicker.tag = PickerTag.WARD
         wardTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.WARD)
         
-        viewModel.ward.accept(CommonConstants.LOCATION_TYPE)
+//        viewModel.ward.accept(CommonConstants.LOCATION_TYPE)
         
         viewModel.ward.subscribe(on: MainScheduler.instance)
             .bind(to: wardPicker.rx.itemTitles) { (row, element) in
-                return element
+                return element.name
             }.disposed(by: viewModel.bag)
         
         wardPicker.rx.itemSelected.bind { (row: Int, component: Int) in

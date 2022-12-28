@@ -16,6 +16,7 @@
                 <outlet property="districtTextField" destination="bKY-f0-ZWd" id="zZw-W5-W07"/>
                 <outlet property="formTitle" destination="6Ta-aR-YKC" id="bdu-ml-Ajh"/>
                 <outlet property="locationTypeTextField" destination="3mk-Ct-pj0" id="A02-iy-La0"/>
+                <outlet property="nameLocationTextField" destination="HqR-Vb-oka" id="V0z-fw-eNb"/>
                 <outlet property="noteTextView" destination="OJ4-9c-51S" id="prs-zy-NxJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wardTextField" destination="OtR-Y0-Dhe" id="bEx-Fi-IJF"/>
@@ -326,6 +327,9 @@
                             <integer key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onClickedSaveBtn:" destination="-1" eventType="touchUpInside" id="gj2-Nt-oAX"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

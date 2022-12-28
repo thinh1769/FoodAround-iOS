@@ -12,6 +12,7 @@ enum HTTPMethodSupport: String {
     case post = "POST"
     case put = "PUT"
     case patch = "PATCH"
+    case delete = "DELETE"
 }
 
 struct StatusCode {
@@ -28,4 +29,25 @@ struct Base {
 enum APIConstants: String {
     case login = "user/login"
     case register = "user/register"
+    case getAllLocation = "location/all-location"
+    case addLocation = "location/add-location"
+    case updateLocation = "location/update-location/" /// { id }
+    case deleteLocation = "location/delete-location/" /// { id }
+    
+    var method: HTTPMethodSupport {
+        switch self {
+        case .login:
+            return .post
+        case .register:
+            return .post
+        case .getAllLocation:
+            return .get
+        case .addLocation:
+            return .post
+        case .updateLocation:
+            return .put
+        case .deleteLocation:
+            return .delete 
+        }
+    }
 }

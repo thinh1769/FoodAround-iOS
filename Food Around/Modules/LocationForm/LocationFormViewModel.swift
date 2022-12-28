@@ -10,11 +10,12 @@ import RxRelay
 import RxSwift
 
 class LocationFormViewModel {
-    var bag = DisposeBag()
+    let bag = DisposeBag()
+    let locationService = LocationService()
     var locationType = BehaviorRelay<[String]>(value: [])
-    var city = BehaviorRelay<[String]>(value: [])
-    var district = BehaviorRelay<[String]>(value: [])
-    var ward = BehaviorRelay<[String]>(value: [])
+    var city = BehaviorRelay<[City]>(value: [])
+    var district = BehaviorRelay<[District]>(value: [])
+    var ward = BehaviorRelay<[Ward]>(value: [])
     var selectedLocationType = 0
     var selectedCity = 0
     var selectedDistrict = 0
@@ -22,20 +23,27 @@ class LocationFormViewModel {
     var lat = 0.0
     var long = 0.0
     var formTitle = ""
+    var nameLocation = ""
+    var addressStreet = ""
+    var note = ""
     
     func pickItem(pickerTag: Int) -> String? {
         switch pickerTag{
         case PickerTag.LOCATION_TYPE:
             return locationType.value[selectedLocationType]
         case PickerTag.CITY:
-            return city.value[selectedCity]
+            return city.value[selectedCity].name
         case PickerTag.DISTRICT:
-            return district.value[selectedDistrict]
+            return district.value[selectedDistrict].name
         case PickerTag.WARD:
-            return ward.value[selectedWard]
+            return ward.value[selectedWard].name
         default:
             return ""
         }
-        
     }
+    
+    func addLocation(_ location: Location) -> Observable<Location> {
+        return locationService.addLocation(location: location)
+    }
+    
 }

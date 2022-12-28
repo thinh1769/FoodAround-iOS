@@ -15,7 +15,7 @@ class BaseService: NSObject {
         baseHeader.add(HTTPHeader(name: "token", value: "Bearer " + (UserDefaults.userInfo?.token ?? "")))
     }
     
-    func authRequest<Body: Codable, Response: Codable>(api: APIConstants, method: HTTPMethod, parameters: Body, headers: [String: String]? = nil) -> Observable<Response> {
+    func authRequest<Params: Codable, Response: Codable>(api: APIConstants, method: HTTPMethod, parameters: Params, headers: [String: String]? = nil) -> Observable<Response> {
         let url = Base.URL + api.rawValue
         if headers != nil {
             for header in headers! {
@@ -36,7 +36,28 @@ class BaseService: NSObject {
         let request = AF.request(url, method: method, headers: self.baseHeader)
         return performRequest(request)
     }
+    
+    func request<Params: Codable, Response: Codable>(api: APIConstants, headers: [String: String] = [:], params: Params) -> Observable<Response> {
+        let url = Base.URL + api.rawValue
+        headers.forEach {
+            baseHeader.add(name: $0.key, value: $0.value)
+        }
         
+        guard let methodSupport = HTTPMethod.convert(api.method) else {
+            return Observable.create { response in
+                Disposables.create {
+                    return print("Error: Invalid method")
+                }
+            }
+        }
+        
+        if methodSupport == .get {
+            return performRequest(AF.request(url, method: methodSupport, parameters: params, encoder: URLEncodedFormParameterEncoder.default, headers:  self.baseHeader))
+        } else {
+            return performRequest(AF.request(url, method: methodSupport, parameters: params, encoder: .json, headers: self.baseHeader))
+        }
+    }
+    
     private func performRequest<Response: Codable>(_ request: DataRequest) -> Observable<Response> {
         return Observable.create { observer in
             request.responseDecodable(of: ResponseMain<Response>.self) { response in
