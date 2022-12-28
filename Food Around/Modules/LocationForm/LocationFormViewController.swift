@@ -46,10 +46,10 @@ class LocationFormViewController: BaseController {
 
     private func setupUI() {
         isEnabledTouchDismissKeyboard = true
-        locationTypeTextField.text = CommonConstants.LOCATION_TYPE_PLACEHODLER
-        cityTextField.text = CommonConstants.CITY_PLACEHODLER
-        districtTextField.text = CommonConstants.DISTRICT_PLACEHODLER
-        wardTextField.text = CommonConstants.WARD_PLACEHODLER
+        locationTypeTextField.placeholder = CommonConstants.LOCATION_TYPE_PLACEHODLER
+        cityTextField.placeholder = CommonConstants.CITY_PLACEHODLER
+        districtTextField.placeholder = CommonConstants.DISTRICT_PLACEHODLER
+        wardTextField.placeholder = CommonConstants.WARD_PLACEHODLER
         setupPicker()
     }
     

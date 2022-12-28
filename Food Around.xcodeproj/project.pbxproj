@@ -27,6 +27,13 @@
 		FCA38CE429504B6800CD8832 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA38CE229504B6800CD8832 /* SignInViewController.xib */; };
 		FCB661B0295944CF00ABB8A8 /* LocationFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661AF295944CF00ABB8A8 /* LocationFormViewModel.swift */; };
 		FCB661B22959790200ABB8A8 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661B12959790200ABB8A8 /* CustomTextField.swift */; };
+		FCB661B5295A91E000ABB8A8 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661B4295A91E000ABB8A8 /* BaseService.swift */; };
+		FCB661B7295A99CF00ABB8A8 /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661B6295A99CF00ABB8A8 /* UserDefaults+Ext.swift */; };
+		FCB661BA295A9CAA00ABB8A8 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661B9295A9CAA00ABB8A8 /* UserInfo.swift */; };
+		FCB661BC295AA06800ABB8A8 /* ResponseMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661BB295AA06800ABB8A8 /* ResponseMain.swift */; };
+		FCB661BE295AA12200ABB8A8 /* ServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661BD295AA12200ABB8A8 /* ServiceConstants.swift */; };
+		FCB661C0295AC58500ABB8A8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661BF295AC58500ABB8A8 /* AuthService.swift */; };
+		FCB661C2295AC77A00ABB8A8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661C1295AC77A00ABB8A8 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +61,13 @@
 		FCA38CE229504B6800CD8832 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		FCB661AF295944CF00ABB8A8 /* LocationFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormViewModel.swift; sourceTree = "<group>"; };
 		FCB661B12959790200ABB8A8 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		FCB661B4295A91E000ABB8A8 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		FCB661B6295A99CF00ABB8A8 /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
+		FCB661B9295A9CAA00ABB8A8 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		FCB661BB295AA06800ABB8A8 /* ResponseMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMain.swift; sourceTree = "<group>"; };
+		FCB661BD295AA12200ABB8A8 /* ServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConstants.swift; sourceTree = "<group>"; };
+		FCB661BF295AC58500ABB8A8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		FCB661C1295AC77A00ABB8A8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				FCB661B12959790200ABB8A8 /* CustomTextField.swift */,
+				FCB661B6295A99CF00ABB8A8 /* UserDefaults+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -107,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				FC8D0B4929506A7F00B229FA /* SignUpViewController.swift */,
+				FCB661C1295AC77A00ABB8A8 /* SignUpViewModel.swift */,
 				FC8D0B4A29506A7F00B229FA /* SignUpViewController.xib */,
 			);
 			path = SignUp;
@@ -143,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				FC8D0B5C2952B5A700B229FA /* CommonConstants.swift */,
+				FCB661BD295AA12200ABB8A8 /* ServiceConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -172,6 +189,8 @@
 				FC8D0B5B2952B59400B229FA /* Constants */,
 				FC788E56295405C400425AB7 /* Extensions */,
 				FCA38CDF29504B0600CD8832 /* Modules */,
+				FCB661B8295A9C7300ABB8A8 /* Models */,
+				FCB661B3295A91C600ABB8A8 /* Service */,
 				FC8D0B4E2951576600B229FA /* Supports */,
 				FCA38CD9295047C800CD8832 /* Info.plist */,
 			);
@@ -208,6 +227,24 @@
 				FCA38CE229504B6800CD8832 /* SignInViewController.xib */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		FCB661B3295A91C600ABB8A8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FCB661B4295A91E000ABB8A8 /* BaseService.swift */,
+				FCB661BF295AC58500ABB8A8 /* AuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FCB661B8295A9C7300ABB8A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FCB661B9295A9CAA00ABB8A8 /* UserInfo.swift */,
+				FCB661BB295AA06800ABB8A8 /* ResponseMain.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,16 +367,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC8D0B5429515D1A00B229FA /* OTPViewController.swift in Sources */,
+				FCB661BC295AA06800ABB8A8 /* ResponseMain.swift in Sources */,
 				FC8D0B50295157B100B229FA /* BaseController.swift in Sources */,
+				FCB661C0295AC58500ABB8A8 /* AuthService.swift in Sources */,
 				FCA38CCC295047C500CD8832 /* AppDelegate.swift in Sources */,
+				FCB661C2295AC77A00ABB8A8 /* SignUpViewModel.swift in Sources */,
+				FCB661BE295AA12200ABB8A8 /* ServiceConstants.swift in Sources */,
 				FC788E612955B1A500425AB7 /* HomeViewModel.swift in Sources */,
 				FCA38CCE295047C500CD8832 /* SceneDelegate.swift in Sources */,
 				FCB661B0295944CF00ABB8A8 /* LocationFormViewModel.swift in Sources */,
+				FCB661B7295A99CF00ABB8A8 /* UserDefaults+Ext.swift in Sources */,
 				FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */,
+				FCB661B5295A91E000ABB8A8 /* BaseService.swift in Sources */,
 				FC8D0B5D2952B5A700B229FA /* CommonConstants.swift in Sources */,
 				FCB661B22959790200ABB8A8 /* CustomTextField.swift in Sources */,
 				FC8D0B592952ACF500B229FA /* HomeViewController.swift in Sources */,
 				FC788E5E29545CA100425AB7 /* LocationFormViewController.swift in Sources */,
+				FCB661BA295A9CAA00ABB8A8 /* UserInfo.swift in Sources */,
 				FCA38CE329504B6800CD8832 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
