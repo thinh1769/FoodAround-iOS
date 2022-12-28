@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Food_Around" customModuleProvider="target">
             <connections>
+                <outlet property="hidePasswordBtn" destination="Ovh-rs-72D" id="Jmg-En-cgL"/>
+                <outlet property="passwordTextField" destination="o95-CN-vef" id="eec-wl-dik"/>
+                <outlet property="phoneTextField" destination="OXu-ql-G4P" id="rXI-3q-Tsm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -92,7 +95,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="btO-fA-gXx" userLabel="passwordStackView">
                                     <rect key="frame" x="0.0" y="106" width="310" height="30"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="xxxxxxxx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o95-CN-vef" userLabel="passwordTextField">
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o95-CN-vef" userLabel="passwordTextField">
                                             <rect key="frame" x="0.0" y="0.0" width="278" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="wvb-2M-Fjp"/>
@@ -112,6 +115,9 @@
                                             <state key="normal" image="eye.fill" catalog="system">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onClickedHidePasswordBtn:" destination="-1" eventType="touchUpInside" id="Fld-bc-HJc"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -215,7 +221,7 @@
                 <constraint firstAttribute="trailing" secondItem="hwo-EG-x1T" secondAttribute="trailing" constant="10" id="lfs-xK-oa5"/>
                 <constraint firstItem="EXw-8J-pYq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="oif-eC-pjG"/>
             </constraints>
-            <point key="canvasLocation" x="452" y="25"/>
+            <point key="canvasLocation" x="122" y="-8"/>
         </view>
     </objects>
     <resources>

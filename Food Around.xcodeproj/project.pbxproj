@@ -34,6 +34,10 @@
 		FCB661BE295AA12200ABB8A8 /* ServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661BD295AA12200ABB8A8 /* ServiceConstants.swift */; };
 		FCB661C0295AC58500ABB8A8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661BF295AC58500ABB8A8 /* AuthService.swift */; };
 		FCB661C2295AC77A00ABB8A8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661C1295AC77A00ABB8A8 /* SignUpViewModel.swift */; };
+		FCB661C4295BDA7D00ABB8A8 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661C3295BDA7D00ABB8A8 /* SignInViewModel.swift */; };
+		FCB661C8295C1DE900ABB8A8 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661C6295C1DE900ABB8A8 /* UserInfoViewController.swift */; };
+		FCB661C9295C1DE900ABB8A8 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB661C7295C1DE900ABB8A8 /* UserInfoViewController.xib */; };
+		FCB661CB295C238600ABB8A8 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661CA295C238600ABB8A8 /* UserInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,10 @@
 		FCB661BD295AA12200ABB8A8 /* ServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConstants.swift; sourceTree = "<group>"; };
 		FCB661BF295AC58500ABB8A8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FCB661C1295AC77A00ABB8A8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		FCB661C3295BDA7D00ABB8A8 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		FCB661C6295C1DE900ABB8A8 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		FCB661C7295C1DE900ABB8A8 /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
+		FCB661CA295C238600ABB8A8 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +213,7 @@
 				FC8D0B5129515CFD00B229FA /* OTP */,
 				FC8D0B562952ACD600B229FA /* Home */,
 				FC788E5B29545BCD00425AB7 /* LocationForm */,
+				FCB661C5295C1DC100ABB8A8 /* UserInfo */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -224,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				FCA38CE129504B6800CD8832 /* SignInViewController.swift */,
+				FCB661C3295BDA7D00ABB8A8 /* SignInViewModel.swift */,
 				FCA38CE229504B6800CD8832 /* SignInViewController.xib */,
 			);
 			path = SignIn;
@@ -245,6 +255,16 @@
 				FCB661BB295AA06800ABB8A8 /* ResponseMain.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FCB661C5295C1DC100ABB8A8 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				FCB661C6295C1DE900ABB8A8 /* UserInfoViewController.swift */,
+				FCB661CA295C238600ABB8A8 /* UserInfoViewModel.swift */,
+				FCB661C7295C1DE900ABB8A8 /* UserInfoViewController.xib */,
+			);
+			path = UserInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +332,7 @@
 				FC8D0B4C29506A7F00B229FA /* SignUpViewController.xib in Resources */,
 				FCA38CD5295047C800CD8832 /* Assets.xcassets in Resources */,
 				FC8D0B5529515D1A00B229FA /* OTPViewController.xib in Resources */,
+				FCB661C9295C1DE900ABB8A8 /* UserInfoViewController.xib in Resources */,
 				FC8D0B5A2952ACF500B229FA /* HomeViewController.xib in Resources */,
 				FC788E5F29545CA100425AB7 /* LocationFormViewController.xib in Resources */,
 			);
@@ -367,9 +388,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC8D0B5429515D1A00B229FA /* OTPViewController.swift in Sources */,
+				FCB661C8295C1DE900ABB8A8 /* UserInfoViewController.swift in Sources */,
 				FCB661BC295AA06800ABB8A8 /* ResponseMain.swift in Sources */,
 				FC8D0B50295157B100B229FA /* BaseController.swift in Sources */,
 				FCB661C0295AC58500ABB8A8 /* AuthService.swift in Sources */,
+				FCB661CB295C238600ABB8A8 /* UserInfoViewModel.swift in Sources */,
+				FCB661C4295BDA7D00ABB8A8 /* SignInViewModel.swift in Sources */,
 				FCA38CCC295047C500CD8832 /* AppDelegate.swift in Sources */,
 				FCB661C2295AC77A00ABB8A8 /* SignUpViewModel.swift in Sources */,
 				FCB661BE295AA12200ABB8A8 /* ServiceConstants.swift in Sources */,

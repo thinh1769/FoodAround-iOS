@@ -13,6 +13,7 @@ import RxCocoa
 
 class HomeViewController: BaseController {
 
+    @IBOutlet private weak var pinPointView: UIView!
     @IBOutlet private weak var currentLocationBtn: UIButton!
     @IBOutlet private weak var searchTextField: UITextField!
     @IBOutlet private weak var pinNewLocationBtn: UIButton!
@@ -74,9 +75,9 @@ class HomeViewController: BaseController {
         pinNewLocationBtn.layer.cornerRadius = 25
         
     }
-
-    @IBAction func onClickedBackBtn(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+    
+    @IBAction func onClickedUserInfoBtn(_ sender: UIButton) {
+        navigateTo(UserInfoViewController())
     }
     
     @IBAction func onClickedUserLocation(_ sender: UIButton) {
@@ -102,6 +103,7 @@ class HomeViewController: BaseController {
         searchView.isHidden = !isShow
         pinNewLocationBtn.isHidden = !isShow
         pinNewLocationImage.isHidden = isShow
+        pinPointView.isHidden = isShow
         addNewLocationBtn.isHidden = isShow
         cancelBtn.isHidden = isShow
     }

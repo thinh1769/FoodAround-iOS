@@ -46,10 +46,6 @@ class LocationFormViewController: BaseController {
 
     private func setupUI() {
         isEnabledTouchDismissKeyboard = true
-        locationTypeTextField.placeholder = CommonConstants.LOCATION_TYPE_PLACEHODLER
-        cityTextField.placeholder = CommonConstants.CITY_PLACEHODLER
-        districtTextField.placeholder = CommonConstants.DISTRICT_PLACEHODLER
-        wardTextField.placeholder = CommonConstants.WARD_PLACEHODLER
         setupPicker()
     }
     
@@ -85,6 +81,7 @@ class LocationFormViewController: BaseController {
     }
     
     private func setupLocationTypePicker() {
+        locationTypeTextField.attributedPlaceholder = NSAttributedString(string: CommonConstants.LOCATION_TYPE_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray3])
         locationTypeTextField.inputView = locationTypePicker
         locationTypeTextField.tintColor = .clear
         locationTypePicker.tag = PickerTag.LOCATION_TYPE
@@ -103,6 +100,7 @@ class LocationFormViewController: BaseController {
     }
     
     private func setupCityPicker() {
+        cityTextField.attributedPlaceholder = NSAttributedString(string: CommonConstants.CITY_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray3])
         cityTextField.inputView = cityPicker
         cityTextField.tintColor = .clear
         cityPicker.tag = PickerTag.CITY
@@ -121,6 +119,7 @@ class LocationFormViewController: BaseController {
     }
     
     private func setupDistrictPicker() {
+        districtTextField.attributedPlaceholder = NSAttributedString(string: CommonConstants.DISTRICT_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray3])
         districtTextField.inputView = districtPicker
         districtTextField.tintColor = .clear
         districtPicker.tag = PickerTag.DISTRICT
@@ -139,6 +138,7 @@ class LocationFormViewController: BaseController {
     }
     
     private func setupWardPicker() {
+        wardTextField.attributedPlaceholder = NSAttributedString(string: CommonConstants.WARD_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray3])
         wardTextField.inputView = wardPicker
         wardTextField.tintColor = .clear
         wardPicker.tag = PickerTag.WARD
