@@ -13,4 +13,8 @@ class LocationService: BaseService {
     func addLocation(location: Location) -> Observable<Location> {
         return request(api: .addLocation, params: location)
     }
+    
+    func getAllLocation() -> Observable<[Location]> {
+        return request(api: .getAllLocation)
+    }
 }

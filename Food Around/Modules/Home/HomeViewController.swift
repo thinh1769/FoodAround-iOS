@@ -54,6 +54,12 @@ class HomeViewController: BaseController {
             }
         }.disposed(by: viewModel.bag)
         
+        viewModel.getAllLocation().subscribe { [weak self] locations in
+            guard let self = self else { return }
+            self.viewModel.location.accept(locations)
+            print("-------------\(locations)")
+        }.disposed(by: viewModel.bag)
+        
         searchView.layer.masksToBounds = false
         searchView.layer.borderColor = UIColor.lightGray.cgColor
         searchView.layer.borderWidth = 1
@@ -123,10 +129,10 @@ extension HomeViewController: CLLocationManagerDelegate {
         let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: false)
-        pinLocation(coordinate)
+        pinUserLocation(coordinate)
     }
     
-    private func pinLocation(_ coordinate: CLLocationCoordinate2D) {
+    private func pinUserLocation(_ coordinate: CLLocationCoordinate2D) {
         removeAllAnnotation()
         let pin = MKPointAnnotation()
         pin.coordinate = coordinate
@@ -140,6 +146,10 @@ extension HomeViewController: CLLocationManagerDelegate {
                 mapView.removeAnnotation(annotation)
             }
         }
+    }
+    
+    private func pinLocation() {
+        
     }
 }
 

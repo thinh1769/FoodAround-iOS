@@ -98,7 +98,8 @@ class LocationFormViewController: BaseController {
         viewModel.addLocation(location)
             .subscribe { [weak self] location in
                 guard let self = self else { return }
-                self.navigateTo(HomeViewController())
+                print("Location Saved: \(location)---------------------")
+                self.navigationController?.popViewController(animated: true)
             } onCompleted: {
             }.disposed(by: viewModel.bag)
     }

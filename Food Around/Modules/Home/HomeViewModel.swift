@@ -10,5 +10,11 @@ import RxCocoa
 import RxSwift
 
 class HomeViewModel {
-    var bag = DisposeBag()
+    let bag = DisposeBag()
+    let locationService = LocationService()
+    var location = BehaviorRelay<[Location]>(value: [])
+    
+    func getAllLocation() -> Observable<[Location]> {
+        return locationService.getAllLocation()
+    }
 }
