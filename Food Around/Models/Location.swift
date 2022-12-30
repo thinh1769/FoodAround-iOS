@@ -12,9 +12,12 @@ struct Location: Codable {
     var name: String?
     var type: String
     var address: String
-    var city: City
-    var district: District
-    var ward: Ward
+    var city: City?
+    var district: District?
+    var ward: Ward?
+    var cityId: String?
+    var districtId: String?
+    var wardId: String?
     var note: String
     var lat: Double
     var long: Double

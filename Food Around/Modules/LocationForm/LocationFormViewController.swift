@@ -38,6 +38,9 @@ class LocationFormViewController: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         formTitle.text = viewModel.formTitle
+        viewModel.getCities().subscribe { cities in
+            self.viewModel.city.accept(cities)
+        }.disposed(by: viewModel.bag)
     }
     
     override func viewDidLoad() {
@@ -48,6 +51,30 @@ class LocationFormViewController: BaseController {
     private func setupUI() {
         isEnabledTouchDismissKeyboard = true
         setupPicker()
+        
+        // Nhấp vào District TextField load list District
+        districtTextField.rx.controlEvent([.editingDidBegin]).subscribe { [weak self] _ in
+            guard let self = self,
+                  let city = self.cityTextField.text,
+                  !(city.isEmpty)
+            else { return }
+            self.viewModel.getDistrictsByCityId(cityId: self.viewModel.city.value[self.viewModel.selectedCity].id)
+                .subscribe { districts in
+                    self.viewModel.district.accept(districts)
+                }.disposed(by: self.viewModel.bag)
+        }.disposed(by: viewModel.bag)
+        
+        // Nhấp vào Ward TextField load list ward
+        wardTextField.rx.controlEvent([.editingDidBegin]).subscribe { [weak self] _ in
+            guard let self = self,
+                  let district = self.districtTextField.text,
+                  !(district.isEmpty)
+            else { return }
+            self.viewModel.getWardsByDistrictId(districtId: self.viewModel.district.value[self.viewModel.selectedDistrict].id)
+                .subscribe { wards in
+                    self.viewModel.ward.accept(wards)
+                }.disposed(by: self.viewModel.bag)
+        }.disposed(by: viewModel.bag)
     }
     
     private func setupPicker() {
@@ -66,9 +93,13 @@ class LocationFormViewController: BaseController {
         viewModel.addressStreet = addressStreetTextField.text!
         viewModel.note = noteTextView.text!
         
-        viewModel.addLocation(Location(type: viewModel.locationType.value[viewModel.selectedLocationType], address: viewModel.addressStreet, city: viewModel.city.value[viewModel.selectedCity], district: viewModel.district.value[viewModel.selectedDistrict], ward: viewModel.ward.value[viewModel.selectedWard], note: viewModel.note, lat: viewModel.lat, long: viewModel.long))
-            .subscribe { location in
-                print("Thêm địa điểm thành công----------------------------------------")
+        let location = Location(name: viewModel.nameLocation, type: viewModel.locationType.value[viewModel.selectedLocationType], address: viewModel.addressStreet, cityId: viewModel.city.value[viewModel.selectedCity].id, districtId: viewModel.district.value[viewModel.selectedDistrict].id, wardId: viewModel.ward.value[viewModel.selectedWard].id, note: viewModel.note, lat: viewModel.lat, long: viewModel.long)
+        
+        viewModel.addLocation(location)
+            .subscribe { [weak self] location in
+                guard let self = self else { return }
+                self.navigateTo(HomeViewController())
+            } onCompleted: {
             }.disposed(by: viewModel.bag)
     }
     
@@ -78,9 +109,21 @@ class LocationFormViewController: BaseController {
             locationTypeTextField.text = viewModel.pickItem(pickerTag: sender.tag)
         case PickerTag.CITY:
             cityTextField.text = viewModel.pickItem(pickerTag: sender.tag)
+            districtTextField.text = ""
+            districtPicker.reloadInputViews()
+            wardTextField.text = ""
+            wardPicker.reloadInputViews()
         case PickerTag.DISTRICT:
+            guard let city = cityTextField.text,
+                  !(city.isEmpty)
+            else { return }
             districtTextField.text = viewModel.pickItem(pickerTag: sender.tag)
+            wardTextField.text = ""
+            wardPicker.reloadInputViews()
         case PickerTag.WARD:
+            guard let district = districtTextField.text,
+                  !(district.isEmpty)
+            else { return }
             wardTextField.text = viewModel.pickItem(pickerTag: sender.tag)
         default:
             return
@@ -117,8 +160,6 @@ class LocationFormViewController: BaseController {
         cityTextField.tintColor = .clear
         cityPicker.tag = PickerTag.CITY
         cityTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.CITY)
-        
-//        viewModel.city.accept(CommonConstants.LOCATION_TYPE)
         
         viewModel.city.subscribe(on: MainScheduler.instance)
             .bind(to: cityPicker.rx.itemTitles) { (row, element) in

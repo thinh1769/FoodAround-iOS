@@ -58,6 +58,52 @@ class BaseService: NSObject {
         }
     }
     
+    func request<Response: Codable>(api: APIConstants, headers: [String: String] = [:], params: Parameters? = nil) -> Observable<Response> {
+        let url = Base.URL + api.rawValue
+        headers.forEach {
+            baseHeader.add(name: $0.key, value: $0.value)
+        }
+        guard let methodSupport = HTTPMethod.convert(api.method) else {
+            return Observable.create { response in
+                Disposables.create {
+                    return print("Error: Invalid method")
+                }
+            }
+        }
+        
+        if methodSupport == .get {
+            return performRequest(AF.request(url, method: methodSupport, encoding: URLEncoding.default, headers: self.baseHeader))
+        } else {
+            return performRequest(AF.request(url, method: methodSupport, parameters: params, encoding: JSONEncoding.default, headers: self.baseHeader))
+        }
+    }
+
+    func request<Params: Encodable, Response: Codable>(api: String, method: HTTPMethodSupport, headers: [String: String] = [:], params: Params) -> Observable<Response> {
+        let url = Base.URL + api
+        headers.forEach { baseHeader.add(name: $0.key, value: $0.value) }
+        guard let methodSupport = HTTPMethod.convert(method) else {
+            return Observable.create { response in
+                Disposables.create {
+                    return print("Error: Invalid method")
+                }
+            }
+        }
+        return performRequest(AF.request(url, method: methodSupport, parameters: params, encoder: .json, headers: self.baseHeader))
+    }
+    
+    func request<Response: Codable>(api: String, method: HTTPMethodSupport, headers: [String: String] = [:], params: Parameters? = nil) -> Observable<Response> {
+        let url = Base.URL + api
+        headers.forEach { baseHeader.add(name: $0.key, value: $0.value) }
+        guard let methodSupport = HTTPMethod.convert(method) else {
+            return Observable.create { response in
+                Disposables.create {
+                    return print("Error: Invalid method")
+                }
+            }
+        }
+        return performRequest(AF.request(url, method: methodSupport, parameters: params, encoding: JSONEncoding.default, headers: self.baseHeader))
+    }
+
     private func performRequest<Response: Codable>(_ request: DataRequest) -> Observable<Response> {
         return Observable.create { observer in
             request.responseDecodable(of: ResponseMain<Response>.self) { response in

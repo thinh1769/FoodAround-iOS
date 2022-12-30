@@ -41,6 +41,7 @@
 		FCB661CD295C3B8300ABB8A8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661CC295C3B8300ABB8A8 /* Location.swift */; };
 		FCB661CF295C3ECF00ABB8A8 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661CE295C3ECF00ABB8A8 /* LocationService.swift */; };
 		FCB661D1295C478200ABB8A8 /* HTTPMethod+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661D0295C478200ABB8A8 /* HTTPMethod+Ext.swift */; };
+		FCB661D3295D8C6A00ABB8A8 /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661D2295D8C6A00ABB8A8 /* AddressService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		FCB661CC295C3B8300ABB8A8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FCB661CE295C3ECF00ABB8A8 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		FCB661D0295C478200ABB8A8 /* HTTPMethod+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPMethod+Ext.swift"; sourceTree = "<group>"; };
+		FCB661D2295D8C6A00ABB8A8 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 				FCB661B4295A91E000ABB8A8 /* BaseService.swift */,
 				FCB661BF295AC58500ABB8A8 /* AuthService.swift */,
 				FCB661CE295C3ECF00ABB8A8 /* LocationService.swift */,
+				FCB661D2295D8C6A00ABB8A8 /* AddressService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				FCB661CB295C238600ABB8A8 /* UserInfoViewModel.swift in Sources */,
 				FCB661C4295BDA7D00ABB8A8 /* SignInViewModel.swift in Sources */,
 				FCB661D1295C478200ABB8A8 /* HTTPMethod+Ext.swift in Sources */,
+				FCB661D3295D8C6A00ABB8A8 /* AddressService.swift in Sources */,
 				FCA38CCC295047C500CD8832 /* AppDelegate.swift in Sources */,
 				FCB661C2295AC77A00ABB8A8 /* SignUpViewModel.swift in Sources */,
 				FCB661BE295AA12200ABB8A8 /* ServiceConstants.swift in Sources */,

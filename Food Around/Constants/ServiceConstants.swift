@@ -33,6 +33,9 @@ enum APIConstants: String {
     case addLocation = "location/add-location"
     case updateLocation = "location/update-location/" /// { id }
     case deleteLocation = "location/delete-location/" /// { id }
+    case getAllCities = "city"
+    case getDistrictsByCityId = "district/" /// { id }
+    case getWardsByDistrictId = "ward/" /// { id }
     
     var method: HTTPMethodSupport {
         switch self {
@@ -47,7 +50,13 @@ enum APIConstants: String {
         case .updateLocation:
             return .put
         case .deleteLocation:
-            return .delete 
+            return .delete
+        case .getAllCities:
+            return .get
+        case .getDistrictsByCityId:
+            return .get
+        case .getWardsByDistrictId:
+            return .get
         }
     }
 }

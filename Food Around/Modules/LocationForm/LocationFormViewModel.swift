@@ -12,6 +12,7 @@ import RxSwift
 class LocationFormViewModel {
     let bag = DisposeBag()
     let locationService = LocationService()
+    let addressService = AddressService()
     var locationType = BehaviorRelay<[String]>(value: [])
     var city = BehaviorRelay<[City]>(value: [])
     var district = BehaviorRelay<[District]>(value: [])
@@ -46,4 +47,15 @@ class LocationFormViewModel {
         return locationService.addLocation(location: location)
     }
     
+    func getCities() -> Observable<[City]> {
+        return addressService.getAllCities()
+    }
+    
+    func getDistrictsByCityId(cityId: String) -> Observable<[District]> {
+        return addressService.getDistrictsByCityId(cityId: cityId)
+    }
+    
+    func getWardsByDistrictId(districtId: String) -> Observable<[Ward]> {
+        return addressService.getWardsByDistrictId(districtId: districtId)
+    }
 }
