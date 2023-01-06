@@ -39,7 +39,6 @@ class SignInViewController: BaseController {
         viewModel.login(phone: phoneTextField.text!, password: passwordTextField.text!)
             .subscribe { user in
                 UserDefaults.userInfo = user
-                print("Đăng nhập thành công---------------------------------------\(UserDefaults.userInfo)")
                 self.navigateTo(HomeViewController())
             }.disposed(by: viewModel.bag)
         

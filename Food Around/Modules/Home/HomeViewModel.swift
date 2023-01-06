@@ -17,4 +17,5 @@ class HomeViewModel {
     func getAllLocation() -> Observable<[Location]> {
         return locationService.getAllLocation()
     }
+
 }

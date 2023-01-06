@@ -57,7 +57,7 @@ class HomeViewController: BaseController {
         viewModel.getAllLocation().subscribe { [weak self] locations in
             guard let self = self else { return }
             self.viewModel.location.accept(locations)
-            print("-------------\(locations)")
+            self.pinLocation()
         }.disposed(by: viewModel.bag)
         
         searchView.layer.masksToBounds = false
@@ -135,6 +135,7 @@ extension HomeViewController: CLLocationManagerDelegate {
     private func pinUserLocation(_ coordinate: CLLocationCoordinate2D) {
         removeAllAnnotation()
         let pin = MKPointAnnotation()
+        pin.title = "UserLocation"
         pin.coordinate = coordinate
         mapView.addAnnotation(pin)
     }
@@ -143,30 +144,54 @@ extension HomeViewController: CLLocationManagerDelegate {
         let annotations = mapView.annotations
         for _annotation in annotations {
             if let annotation = _annotation as? MKAnnotation {
-                mapView.removeAnnotation(annotation)
+                guard let locationTitle = annotation.title else { return }
+                if locationTitle == "UserLocation" {
+                    mapView.removeAnnotation(annotation)
+                }
             }
         }
+        pinLocation()
     }
     
     private func pinLocation() {
-        
+        for location in viewModel.location.value {
+            let coordinate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.long)
+            let pin = MKPointAnnotation()
+            pin.title = "Location"
+            pin.coordinate = coordinate
+            mapView.addAnnotation(pin)
+        }
     }
 }
 
 /// Custom Annotation View
 extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard !(annotation is MKUserLocation) else {
-            return nil
-        }
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "currentLocation")
+        guard !(annotation is MKUserLocation) else { return nil }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "location")
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "currentLocation")
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "location")
             annotationView?.canShowCallout = true
         } else {
             annotationView?.annotation = annotation
         }
-        annotationView?.image = UIImage(named: "circle.inset.filled")
+        
+        guard let locationTitle = annotation.title else { return nil }
+        
+        if locationTitle == "UserLocation" {
+            annotationView?.image = UIImage(named: "circle.inset.filled")
+        } else {
+            let image = UIImage(named: "pin-icon")
+            let resizedSize = CGSize(width: 30, height: 30)
+
+            UIGraphicsBeginImageContext(resizedSize)
+            image?.draw(in: CGRect(origin: .zero, size: resizedSize))
+            let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+
+            annotationView?.image = resizedImage
+        }
         return annotationView
     }
 }
