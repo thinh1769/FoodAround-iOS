@@ -31,6 +31,12 @@ class HomeViewController: BaseController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         hidePinNewLocation(true)
+        
+        viewModel.getAllLocation().subscribe { [weak self] locations in
+            guard let self = self else { return }
+            self.viewModel.location.accept(locations)
+            self.pinLocation()
+        }.disposed(by: viewModel.bag)
     }
     
     override func viewDidLoad() {
@@ -52,12 +58,6 @@ class HomeViewController: BaseController {
                 self.pinNewLocationBtn.isHidden = false
                 self.currentLocationBtn.isHidden = false
             }
-        }.disposed(by: viewModel.bag)
-        
-        viewModel.getAllLocation().subscribe { [weak self] locations in
-            guard let self = self else { return }
-            self.viewModel.location.accept(locations)
-            self.pinLocation()
         }.disposed(by: viewModel.bag)
         
         searchView.layer.masksToBounds = false
