@@ -42,6 +42,8 @@
 		FCB661CF295C3ECF00ABB8A8 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661CE295C3ECF00ABB8A8 /* LocationService.swift */; };
 		FCB661D1295C478200ABB8A8 /* HTTPMethod+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661D0295C478200ABB8A8 /* HTTPMethod+Ext.swift */; };
 		FCB661D3295D8C6A00ABB8A8 /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661D2295D8C6A00ABB8A8 /* AddressService.swift */; };
+		FCB662A9296BFCA800ABB8A8 /* DetailPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB662A8296BFCA800ABB8A8 /* DetailPopupView.xib */; };
+		FCB662AB296BFCD400ABB8A8 /* DetailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB662AA296BFCD400ABB8A8 /* DetailPopupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		FCB661CE295C3ECF00ABB8A8 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		FCB661D0295C478200ABB8A8 /* HTTPMethod+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPMethod+Ext.swift"; sourceTree = "<group>"; };
 		FCB661D2295D8C6A00ABB8A8 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; };
+		FCB662A8296BFCA800ABB8A8 /* DetailPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPopupView.xib; sourceTree = "<group>"; };
+		FCB662AA296BFCD400ABB8A8 /* DetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,7 @@
 				FC8D0B4D29506A8500B229FA /* SignUp */,
 				FC8D0B5129515CFD00B229FA /* OTP */,
 				FC8D0B562952ACD600B229FA /* Home */,
+				FCB662A3296BC1D700ABB8A8 /* DetailPopup */,
 				FC788E5B29545BCD00425AB7 /* LocationForm */,
 				FCB661C5295C1DC100ABB8A8 /* UserInfo */,
 			);
@@ -277,6 +282,15 @@
 				FCB661C7295C1DE900ABB8A8 /* UserInfoViewController.xib */,
 			);
 			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		FCB662A3296BC1D700ABB8A8 /* DetailPopup */ = {
+			isa = PBXGroup;
+			children = (
+				FCB662AA296BFCD400ABB8A8 /* DetailPopupView.swift */,
+				FCB662A8296BFCA800ABB8A8 /* DetailPopupView.xib */,
+			);
+			path = DetailPopup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +355,7 @@
 			files = (
 				FCA38CD8295047C800CD8832 /* LaunchScreen.storyboard in Resources */,
 				FCA38CE429504B6800CD8832 /* SignInViewController.xib in Resources */,
+				FCB662A9296BFCA800ABB8A8 /* DetailPopupView.xib in Resources */,
 				FC8D0B4C29506A7F00B229FA /* SignUpViewController.xib in Resources */,
 				FCA38CD5295047C800CD8832 /* Assets.xcassets in Resources */,
 				FC8D0B5529515D1A00B229FA /* OTPViewController.xib in Resources */,
@@ -423,6 +438,7 @@
 				FCB661B22959790200ABB8A8 /* CustomTextField.swift in Sources */,
 				FC8D0B592952ACF500B229FA /* HomeViewController.swift in Sources */,
 				FC788E5E29545CA100425AB7 /* LocationFormViewController.swift in Sources */,
+				FCB662AB296BFCD400ABB8A8 /* DetailPopupView.swift in Sources */,
 				FCB661BA295A9CAA00ABB8A8 /* UserInfo.swift in Sources */,
 				FCA38CE329504B6800CD8832 /* SignInViewController.swift in Sources */,
 			);

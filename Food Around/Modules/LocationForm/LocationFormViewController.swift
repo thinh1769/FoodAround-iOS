@@ -98,7 +98,6 @@ class LocationFormViewController: BaseController {
         viewModel.addLocation(location)
             .subscribe { [weak self] location in
                 guard let self = self else { return }
-                print("Location Saved: \(location)---------------------")
                 self.navigationController?.popViewController(animated: true)
             } onCompleted: {
             }.disposed(by: viewModel.bag)
@@ -179,8 +178,6 @@ class LocationFormViewController: BaseController {
         districtPicker.tag = PickerTag.DISTRICT
         districtTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.DISTRICT)
         
-//        viewModel.district.accept(CommonConstants.LOCATION_TYPE)
-        
         viewModel.district.subscribe(on: MainScheduler.instance)
             .bind(to: districtPicker.rx.itemTitles) { (row, element) in
                 return element.name
@@ -197,8 +194,6 @@ class LocationFormViewController: BaseController {
         wardTextField.tintColor = .clear
         wardPicker.tag = PickerTag.WARD
         wardTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.WARD)
-        
-//        viewModel.ward.accept(CommonConstants.LOCATION_TYPE)
         
         viewModel.ward.subscribe(on: MainScheduler.instance)
             .bind(to: wardPicker.rx.itemTitles) { (row, element) in

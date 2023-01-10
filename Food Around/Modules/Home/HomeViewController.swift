@@ -25,6 +25,8 @@ class HomeViewController: BaseController {
     
     private var viewModel = HomeViewModel()
     private var locationManager = CLLocationManager()
+    private let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+    private let detailView = DetailPopupView()
     
     override func viewWillAppear(_ animated: Bool) {
         locationManager.delegate = self
@@ -126,7 +128,6 @@ extension HomeViewController: CLLocationManagerDelegate {
     
     private func moveCameraToLocation(_ location: CLLocation) {
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: false)
         pinUserLocation(coordinate)
@@ -172,7 +173,6 @@ extension HomeViewController: MKMapViewDelegate {
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "location")
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "location")
-            annotationView?.canShowCallout = true
         } else {
             annotationView?.annotation = annotation
         }
@@ -193,5 +193,28 @@ extension HomeViewController: MKMapViewDelegate {
             annotationView?.image = resizedImage
         }
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotation = view.annotation else { return }
+        let coordinate = CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+            
+        addDetailView()
+    }
+    
+    private func addDetailView() {
+        UIView.transition(with: self.view, duration: 0.25, options: [.curveEaseIn]) {
+            self.view.addSubview(self.detailView)
+        }
+        
+        detailView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            detailView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            detailView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            detailView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            detailView.heightAnchor.constraint(equalToConstant: 260)
+        ])
     }
 }
