@@ -30,13 +30,13 @@ class LocationFormViewModel {
     
     func pickItem(pickerTag: Int) -> String? {
         switch pickerTag{
-        case PickerTag.LOCATION_TYPE:
+        case PickerTag.locationType.rawValue:
             return locationType.value[selectedLocationType]
-        case PickerTag.CITY:
+        case PickerTag.city.rawValue:
             return city.value[selectedCity].name
-        case PickerTag.DISTRICT:
+        case PickerTag.district.rawValue:
             return district.value[selectedDistrict].name
-        case PickerTag.WARD:
+        case PickerTag.ward.rawValue:
             return ward.value[selectedWard].name
         default:
             return ""

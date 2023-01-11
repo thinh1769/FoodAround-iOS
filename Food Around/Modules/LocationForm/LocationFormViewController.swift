@@ -29,7 +29,7 @@ class LocationFormViewController: BaseController {
     func config(formType: Int, lat: Double, long: Double) {
         viewModel.lat = lat
         viewModel.long = long
-        if formType == FormType.ADD_NEW_LOCATION_TYPE {
+        if formType == FormType.add.rawValue {
             viewModel.formTitle = CommonConstants.ADD_NEW_LOCATION
         } else {
             viewModel.formTitle = CommonConstants.EDIT_LOCATION
@@ -105,22 +105,22 @@ class LocationFormViewController: BaseController {
     
     @objc private func donePicker(sender: UIBarButtonItem) {
         switch sender.tag {
-        case PickerTag.LOCATION_TYPE:
+        case PickerTag.locationType.rawValue:
             locationTypeTextField.text = viewModel.pickItem(pickerTag: sender.tag)
-        case PickerTag.CITY:
+        case PickerTag.city.rawValue:
             cityTextField.text = viewModel.pickItem(pickerTag: sender.tag)
             districtTextField.text = ""
             districtPicker.reloadInputViews()
             wardTextField.text = ""
             wardPicker.reloadInputViews()
-        case PickerTag.DISTRICT:
+        case PickerTag.district.rawValue:
             guard let city = cityTextField.text,
                   !(city.isEmpty)
             else { return }
             districtTextField.text = viewModel.pickItem(pickerTag: sender.tag)
             wardTextField.text = ""
             wardPicker.reloadInputViews()
-        case PickerTag.WARD:
+        case PickerTag.ward.rawValue:
             guard let district = districtTextField.text,
                   !(district.isEmpty)
             else { return }
@@ -139,8 +139,8 @@ class LocationFormViewController: BaseController {
         locationTypeTextField.attributedPlaceholder = NSAttributedString(string: CommonConstants.LOCATION_TYPE_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray3])
         locationTypeTextField.inputView = locationTypePicker
         locationTypeTextField.tintColor = .clear
-        locationTypePicker.tag = PickerTag.LOCATION_TYPE
-        locationTypeTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.LOCATION_TYPE)
+        locationTypePicker.tag = PickerTag.locationType.rawValue
+        locationTypeTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.locationType.rawValue)
         
         viewModel.locationType.accept(CommonConstants.LOCATION_TYPE)
         
@@ -158,8 +158,8 @@ class LocationFormViewController: BaseController {
         cityTextField.attributedPlaceholder = NSAttributedString(string: CommonConstants.CITY_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray3])
         cityTextField.inputView = cityPicker
         cityTextField.tintColor = .clear
-        cityPicker.tag = PickerTag.CITY
-        cityTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.CITY)
+        cityPicker.tag = PickerTag.city.rawValue
+        cityTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.city.rawValue)
         
         viewModel.city.subscribe(on: MainScheduler.instance)
             .bind(to: cityPicker.rx.itemTitles) { (row, element) in
@@ -175,8 +175,8 @@ class LocationFormViewController: BaseController {
         districtTextField.attributedPlaceholder = NSAttributedString(string: CommonConstants.DISTRICT_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray3])
         districtTextField.inputView = districtPicker
         districtTextField.tintColor = .clear
-        districtPicker.tag = PickerTag.DISTRICT
-        districtTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.DISTRICT)
+        districtPicker.tag = PickerTag.district.rawValue
+        districtTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.district.rawValue)
         
         viewModel.district.subscribe(on: MainScheduler.instance)
             .bind(to: districtPicker.rx.itemTitles) { (row, element) in
@@ -192,8 +192,8 @@ class LocationFormViewController: BaseController {
         wardTextField.attributedPlaceholder = NSAttributedString(string: CommonConstants.WARD_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray3])
         wardTextField.inputView = wardPicker
         wardTextField.tintColor = .clear
-        wardPicker.tag = PickerTag.WARD
-        wardTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.WARD)
+        wardPicker.tag = PickerTag.ward.rawValue
+        wardTextField.inputAccessoryView = setupPickerToolBar(pickerTag: PickerTag.ward.rawValue)
         
         viewModel.ward.subscribe(on: MainScheduler.instance)
             .bind(to: wardPicker.rx.itemTitles) { (row, element) in

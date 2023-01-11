@@ -26,7 +26,6 @@ class HomeViewController: BaseController {
     private var viewModel = HomeViewModel()
     private var locationManager = CLLocationManager()
     private let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
-    private let detailView = DetailPopupView()
     
     override func viewWillAppear(_ animated: Bool) {
         locationManager.delegate = self
@@ -84,6 +83,8 @@ class HomeViewController: BaseController {
         
     }
     
+    
+    
     @IBAction func onClickedUserInfoBtn(_ sender: UIButton) {
         navigateTo(UserInfoViewController())
     }
@@ -99,7 +100,7 @@ class HomeViewController: BaseController {
     @IBAction func onClickedAddNewLocation(_ sender: UIButton) {
         let center = mapView.centerCoordinate
         let vc = LocationFormViewController()
-        vc.config(formType: FormType.ADD_NEW_LOCATION_TYPE, lat: center.latitude, long: center.longitude)
+        vc.config(formType: FormType.add.rawValue, lat: center.latitude, long: center.longitude)
         navigateTo(vc)
     }
     
@@ -136,17 +137,17 @@ extension HomeViewController: CLLocationManagerDelegate {
     private func pinUserLocation(_ coordinate: CLLocationCoordinate2D) {
         removeAllAnnotation()
         let pin = MKPointAnnotation()
-        pin.title = "UserLocation"
+        pin.title = LocationTitle.userLocation.rawValue
         pin.coordinate = coordinate
         mapView.addAnnotation(pin)
     }
     
     private func removeAllAnnotation() {
         let annotations = mapView.annotations
-        for _annotation in annotations {
-            if let annotation = _annotation as? MKAnnotation {
+        for annotation in annotations {
+            if let annotation = annotation as? MKAnnotation {
                 guard let locationTitle = annotation.title else { return }
-                if locationTitle == "UserLocation" {
+                if locationTitle == LocationTitle.userLocation.rawValue {
                     mapView.removeAnnotation(annotation)
                 }
             }
@@ -158,7 +159,7 @@ extension HomeViewController: CLLocationManagerDelegate {
         for location in viewModel.location.value {
             let coordinate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.long)
             let pin = MKPointAnnotation()
-            pin.title = "Location"
+            pin.title = LocationTitle.location.rawValue
             pin.coordinate = coordinate
             mapView.addAnnotation(pin)
         }
@@ -179,7 +180,7 @@ extension HomeViewController: MKMapViewDelegate {
         
         guard let locationTitle = annotation.title else { return nil }
         
-        if locationTitle == "UserLocation" {
+        if locationTitle == LocationTitle.userLocation.rawValue {
             annotationView?.image = UIImage(named: "circle.inset.filled")
         } else {
             let image = UIImage(named: "pin-icon")
@@ -197,24 +198,34 @@ extension HomeViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let annotation = view.annotation else { return }
-        let coordinate = CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
-        let region = MKCoordinateRegion(center: coordinate, span: span)
-        mapView.setRegion(region, animated: true)
+        if annotation.title == LocationTitle.location.rawValue {
+            let coordinate = CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            mapView.setRegion(region, animated: true)
             
-        addDetailView()
+            addDetailView()
+        }
     }
     
     private func addDetailView() {
-        UIView.transition(with: self.view, duration: 0.25, options: [.curveEaseIn]) {
-            self.view.addSubview(self.detailView)
+        for subview in view.subviews{
+            if subview.tag == SubviewTag.detailView.rawValue {
+                subview.removeFromSuperview()
+            }
         }
+        let detailView = DetailPopupView()
+        detailView.tag = SubviewTag.detailView.rawValue
         
-        detailView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            detailView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            detailView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            detailView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            detailView.heightAnchor.constraint(equalToConstant: 260)
-        ])
+        if detailView.superview == nil {
+            self.view.addSubview(detailView)
+            
+            detailView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                detailView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                detailView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                detailView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                detailView.heightAnchor.constraint(equalToConstant: 260)
+            ])
+        }
     }
 }

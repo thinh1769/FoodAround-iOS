@@ -19,14 +19,24 @@ struct CommonConstants {
     static let EDIT_LOCATION = "Sửa Địa Điểm"
 }
 
-struct PickerTag {
-    static let LOCATION_TYPE = 0
-    static let CITY = 1
-    static let DISTRICT = 2
-    static let WARD = 3
+enum PickerTag: Int {
+    case locationType
+    case city
+    case district
+    case ward
 }
 
-struct FormType {
-    static let ADD_NEW_LOCATION_TYPE = 0
-    static let EDIT_LOCATION_TYPE = 1
+enum FormType: Int {
+    case add
+    case edit
+}
+
+enum SubviewTag: Int {
+    case otherView
+    case detailView
+}
+
+enum LocationTitle: String {
+    case userLocation
+    case location
 }
