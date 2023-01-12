@@ -44,6 +44,7 @@
 		FCB661D3295D8C6A00ABB8A8 /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB661D2295D8C6A00ABB8A8 /* AddressService.swift */; };
 		FCB662A9296BFCA800ABB8A8 /* DetailPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB662A8296BFCA800ABB8A8 /* DetailPopupView.xib */; };
 		FCB662AB296BFCD400ABB8A8 /* DetailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB662AA296BFCD400ABB8A8 /* DetailPopupView.swift */; };
+		FCB662AD296EBAA700ABB8A8 /* DetailPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB662AC296EBAA600ABB8A8 /* DetailPopupViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		FCB661D2295D8C6A00ABB8A8 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; };
 		FCB662A8296BFCA800ABB8A8 /* DetailPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPopupView.xib; sourceTree = "<group>"; };
 		FCB662AA296BFCD400ABB8A8 /* DetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupView.swift; sourceTree = "<group>"; };
+		FCB662AC296EBAA600ABB8A8 /* DetailPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				FCB662AA296BFCD400ABB8A8 /* DetailPopupView.swift */,
+				FCB662AC296EBAA600ABB8A8 /* DetailPopupViewModel.swift */,
 				FCB662A8296BFCA800ABB8A8 /* DetailPopupView.xib */,
 			);
 			path = DetailPopup;
@@ -434,6 +437,7 @@
 				FCB661CD295C3B8300ABB8A8 /* Location.swift in Sources */,
 				FC8D0B4B29506A7F00B229FA /* SignUpViewController.swift in Sources */,
 				FCB661B5295A91E000ABB8A8 /* BaseService.swift in Sources */,
+				FCB662AD296EBAA700ABB8A8 /* DetailPopupViewModel.swift in Sources */,
 				FC8D0B5D2952B5A700B229FA /* CommonConstants.swift in Sources */,
 				FCB661B22959790200ABB8A8 /* CustomTextField.swift in Sources */,
 				FC8D0B592952ACF500B229FA /* HomeViewController.swift in Sources */,

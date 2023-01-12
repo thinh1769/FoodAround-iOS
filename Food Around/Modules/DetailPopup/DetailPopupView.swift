@@ -7,9 +7,19 @@
 
 import UIKit
 
+protocol DetailPopupViewDelegate: AnyObject {
+    func deselectedAnnotationWhenDismissDetailPopup()
+}
+
 class DetailPopupView: UIView {
     
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var typeLabel: UILabel!
+    @IBOutlet private weak var addressLabel: UILabel!
     @IBOutlet private weak var noteTextView: UITextView!
+    
+    private let viewModel = DetailPopupViewModel()
+    weak var delegate: DetailPopupViewDelegate?
     
     var nibName: String {
         return String(describing: DetailPopupView.self)
@@ -27,9 +37,29 @@ class DetailPopupView: UIView {
         setupSubView()
     }
     
-    func setupSubView() {
+    private func setupSubView() {
         noteTextView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         addPanGestureToDetailPopup()
+    }
+    
+    func fetchData(_ locationId: String) {
+        viewModel.getLocationById(locationId).subscribe { [weak self] location in
+            guard let self = self else { return }
+            self.viewModel.locationDetail = location
+            self.setupData()
+        }.disposed(by: viewModel.bag)
+        
+    }
+    
+    private func setupData() {
+        nameLabel.text = viewModel.locationDetail?.name
+        typeLabel.text = viewModel.locationDetail?.type
+        addressLabel.text = parsingAddress()
+        noteTextView.text = viewModel.locationDetail?.note
+    }
+    
+    private func parsingAddress() -> String {
+        return "\(viewModel.locationDetail?.address ?? ""), \(viewModel.locationDetail?.ward?.name ?? ""), \(viewModel.locationDetail?.district?.name ?? ""), \(viewModel.locationDetail?.city?.name ?? "")"
     }
     
     private func addPanGestureToDetailPopup() {
@@ -53,6 +83,7 @@ class DetailPopupView: UIView {
                     self.transform = CGAffineTransform(translationX: 0, y: 260)
                 } completion: { _ in
                     self.removeFromSuperview()
+                    self.delegate?.deselectedAnnotationWhenDismissDetailPopup()
                 }
                 
             } else {
@@ -68,7 +99,7 @@ class DetailPopupView: UIView {
         case .failed:
             print("failed")
         default:
-            print("unknown")
+            print("default")
         }
     }
     func nibSetup() {

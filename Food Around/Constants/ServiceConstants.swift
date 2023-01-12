@@ -30,6 +30,7 @@ enum APIConstants: String {
     case login = "user/login"
     case register = "user/register"
     case getAllLocation = "location/all-location"
+    case getLocationById = "location/" /// { id }
     case addLocation = "location/add-location"
     case updateLocation = "location/update-location/" /// { id }
     case deleteLocation = "location/delete-location/" /// { id }
@@ -44,6 +45,8 @@ enum APIConstants: String {
         case .register:
             return .post
         case .getAllLocation:
+            return .get
+        case .getLocationById:
             return .get
         case .addLocation:
             return .post

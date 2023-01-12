@@ -159,7 +159,7 @@ extension HomeViewController: CLLocationManagerDelegate {
         for location in viewModel.location.value {
             let coordinate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.long)
             let pin = MKPointAnnotation()
-            pin.title = LocationTitle.location.rawValue
+            pin.title = location.id
             pin.coordinate = coordinate
             mapView.addAnnotation(pin)
         }
@@ -198,24 +198,29 @@ extension HomeViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let annotation = view.annotation else { return }
-        if annotation.title == LocationTitle.location.rawValue {
+        if annotation.title != LocationTitle.userLocation.rawValue {
             let coordinate = CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
             let region = MKCoordinateRegion(center: coordinate, span: span)
             mapView.setRegion(region, animated: true)
             
-            addDetailView()
+            guard let tempId = annotation.title,
+                  let id = tempId
+            else { return }
+            addDetailView(locationId: id)
         }
     }
     
-    private func addDetailView() {
+    private func addDetailView(locationId: String) {
         for subview in view.subviews{
             if subview.tag == SubviewTag.detailView.rawValue {
                 subview.removeFromSuperview()
             }
         }
         let detailView = DetailPopupView()
+        detailView.delegate = self
+        detailView.fetchData(locationId)
         detailView.tag = SubviewTag.detailView.rawValue
-        
+
         if detailView.superview == nil {
             self.view.addSubview(detailView)
             
@@ -228,4 +233,16 @@ extension HomeViewController: MKMapViewDelegate {
             ])
         }
     }
+}
+
+extension HomeViewController: DetailPopupViewDelegate {
+    func deselectedAnnotationWhenDismissDetailPopup() {
+        let annotations = mapView.annotations
+        for annotation in annotations {
+            if let annotation = annotation as? MKAnnotation {
+                mapView.deselectAnnotation(annotation, animated: false)
+            }
+        }
+    }
+    
 }

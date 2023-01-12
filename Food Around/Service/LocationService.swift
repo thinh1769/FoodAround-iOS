@@ -17,4 +17,8 @@ class LocationService: BaseService {
     func getAllLocation() -> Observable<[Location]> {
         return request(api: .getAllLocation)
     }
+    
+    func getLocationById(locationId: String) -> Observable<Location> {
+        return request(api: APIConstants.getLocationById.rawValue + locationId, method: .get)
+    }
 }
