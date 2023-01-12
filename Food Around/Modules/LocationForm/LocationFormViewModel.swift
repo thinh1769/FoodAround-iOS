@@ -27,6 +27,7 @@ class LocationFormViewModel {
     var nameLocation = ""
     var addressStreet = ""
     var note = ""
+    var location: Location?
     
     func pickItem(pickerTag: Int) -> String? {
         switch pickerTag{

@@ -9,6 +9,8 @@ import UIKit
 
 protocol DetailPopupViewDelegate: AnyObject {
     func deselectedAnnotationWhenDismissDetailPopup()
+    
+    func onClickedEditLocationButton(_ location: Location)
 }
 
 class DetailPopupView: UIView {
@@ -85,7 +87,6 @@ class DetailPopupView: UIView {
                     self.removeFromSuperview()
                     self.delegate?.deselectedAnnotationWhenDismissDetailPopup()
                 }
-                
             } else {
                 UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 100, initialSpringVelocity: 1) {
                     self.transform = .identity
@@ -102,6 +103,12 @@ class DetailPopupView: UIView {
             print("default")
         }
     }
+    
+    @IBAction func onClickedEditLocationBtn(_ sender: UIButton) {
+        guard let location = viewModel.locationDetail else { return }
+        self.delegate?.onClickedEditLocationButton(location)
+    }
+    
     func nibSetup() {
         let nibView = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)!.first as! UIView
         nibView.frame = self.bounds

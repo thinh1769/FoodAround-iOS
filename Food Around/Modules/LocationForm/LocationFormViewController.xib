@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="addressStreetTextField" destination="p9t-wv-Ik3" id="Ayh-ke-FoA"/>
                 <outlet property="cityTextField" destination="Wxv-q4-7Zx" id="Gfi-Qw-pVn"/>
+                <outlet property="deleteLocationBtn" destination="kpK-q7-Ttg" id="SdZ-kX-O6S"/>
                 <outlet property="districtTextField" destination="bKY-f0-ZWd" id="zZw-W5-W07"/>
                 <outlet property="formTitle" destination="6Ta-aR-YKC" id="bdu-ml-Ajh"/>
                 <outlet property="locationTypeTextField" destination="3mk-Ct-pj0" id="A02-iy-La0"/>
@@ -331,6 +332,18 @@
                         <action selector="onClickedSaveBtn:" destination="-1" eventType="touchUpInside" id="gj2-Nt-oAX"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpK-q7-Ttg">
+                    <rect key="frame" x="370" y="69" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="NoJ-9h-7h6"/>
+                        <constraint firstAttribute="width" constant="40" id="adn-Nk-Wcj"/>
+                    </constraints>
+                    <color key="tintColor" name="redColor"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="trash" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="large"/>
+                    </state>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="backGround"/>
@@ -342,18 +355,24 @@
                 <constraint firstItem="Qnx-xM-KzR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="HYw-c3-bfd"/>
                 <constraint firstItem="Lcp-E8-Of7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Lk6-Qt-pF3"/>
                 <constraint firstItem="Lcp-E8-Of7" firstAttribute="top" secondItem="6Ta-aR-YKC" secondAttribute="bottom" constant="20" id="O98-z8-MK4"/>
+                <constraint firstItem="kpK-q7-Ttg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="TO8-fv-KgD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kpK-q7-Ttg" secondAttribute="trailing" constant="20" id="Xlt-AF-vjB"/>
                 <constraint firstItem="awU-Sq-GcU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="nF1-p2-yU3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="awU-Sq-GcU" secondAttribute="trailing" constant="100" id="q6R-1k-kiH"/>
                 <constraint firstItem="6Ta-aR-YKC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uOE-Rk-68c"/>
             </constraints>
-            <point key="canvasLocation" x="287" y="21"/>
+            <point key="canvasLocation" x="396" y="-177"/>
         </view>
     </objects>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <namedColor name="backGround">
             <color red="0.87099999189376831" green="0.87099999189376831" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="redColor">
+            <color red="0.5490196078431373" green="0.082352941176470587" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textField">
             <color red="0.93699997663497925" green="0.93699997663497925" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

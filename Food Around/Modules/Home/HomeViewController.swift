@@ -28,6 +28,7 @@ class HomeViewController: BaseController {
     private let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
     
     override func viewWillAppear(_ animated: Bool) {
+        removeAnnotation(isRemoveAll: true)
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
@@ -81,9 +82,22 @@ class HomeViewController: BaseController {
         pinNewLocationBtn.layer.borderWidth = 1
         pinNewLocationBtn.layer.cornerRadius = 25
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        self.mapView.addGestureRecognizer(tapGesture)
     }
     
-    
+    @objc private func handleTapGesture() {
+        view.window?.endEditing(true)
+        for subview in view.subviews{
+            if subview.tag == SubviewTag.detailView.rawValue {
+                UIView.animateKeyframes(withDuration: 0.4, delay: 0) {
+                    subview.transform = CGAffineTransform(translationX: 0, y: 260)
+                } completion: { _ in
+                    subview.removeFromSuperview()
+                }
+            }
+        }
+    }
     
     @IBAction func onClickedUserInfoBtn(_ sender: UIButton) {
         navigateTo(UserInfoViewController())
@@ -100,7 +114,7 @@ class HomeViewController: BaseController {
     @IBAction func onClickedAddNewLocation(_ sender: UIButton) {
         let center = mapView.centerCoordinate
         let vc = LocationFormViewController()
-        vc.config(formType: FormType.add.rawValue, lat: center.latitude, long: center.longitude)
+        vc.config(formType: FormType.add.rawValue, location: nil, lat: center.latitude, long: center.longitude)
         navigateTo(vc)
     }
     
@@ -135,24 +149,27 @@ extension HomeViewController: CLLocationManagerDelegate {
     }
     
     private func pinUserLocation(_ coordinate: CLLocationCoordinate2D) {
-        removeAllAnnotation()
+        removeAnnotation(isRemoveAll: false)
         let pin = MKPointAnnotation()
         pin.title = LocationTitle.userLocation.rawValue
         pin.coordinate = coordinate
         mapView.addAnnotation(pin)
     }
     
-    private func removeAllAnnotation() {
+    private func removeAnnotation(isRemoveAll: Bool) {
         let annotations = mapView.annotations
         for annotation in annotations {
             if let annotation = annotation as? MKAnnotation {
-                guard let locationTitle = annotation.title else { return }
-                if locationTitle == LocationTitle.userLocation.rawValue {
+                if !isRemoveAll {
+                    guard let locationTitle = annotation.title else { return }
+                    if locationTitle == LocationTitle.userLocation.rawValue {
+                        mapView.removeAnnotation(annotation)
+                    }
+                } else {
                     mapView.removeAnnotation(annotation)
                 }
             }
         }
-        pinLocation()
     }
     
     private func pinLocation() {
@@ -245,4 +262,9 @@ extension HomeViewController: DetailPopupViewDelegate {
         }
     }
     
+    func onClickedEditLocationButton(_ location: Location) {
+        let vc = LocationFormViewController()
+        vc.config(formType: FormType.edit.rawValue, location: location, lat: nil, long: nil)
+        navigateTo(vc)
+    }
 }

@@ -137,7 +137,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ua-2r-hjg" userLabel="signInBtn">
                     <rect key="frame" x="70" y="497" width="250" height="50"/>
-                    <color key="backgroundColor" red="0.55022322529494161" green="0.082308338439698425" blue="0.0047538095551770444" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" name="redColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="42H-fN-oP1"/>
                     </constraints>
@@ -219,6 +219,9 @@
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <namedColor name="backGround">
             <color red="0.87099999189376831" green="0.87099999189376831" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="redColor">
+            <color red="0.5490196078431373" green="0.082352941176470587" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="themeColor">
             <color red="0.1289999932050705" green="0.28600001335144043" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

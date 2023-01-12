@@ -19,6 +19,7 @@ class LocationFormViewController: BaseController {
     @IBOutlet private weak var wardTextField: CustomTextField!
     @IBOutlet private weak var addressStreetTextField: CustomTextField!
     @IBOutlet private weak var noteTextView: UITextView!
+    @IBOutlet private weak var deleteLocationBtn: UIButton!
     
     var locationTypePicker = UIPickerView()
     var cityPicker = UIPickerView()
@@ -26,13 +27,18 @@ class LocationFormViewController: BaseController {
     var wardPicker = UIPickerView()
     var viewModel = LocationFormViewModel()
     
-    func config(formType: Int, lat: Double, long: Double) {
-        viewModel.lat = lat
-        viewModel.long = long
+    func config(formType: Int, location: Location?, lat: Double?, long: Double?) {
         if formType == FormType.add.rawValue {
             viewModel.formTitle = CommonConstants.ADD_NEW_LOCATION
+            guard let lat = lat,
+                  let long = long
+            else { return }
+            viewModel.lat = lat
+            viewModel.long = long
         } else {
             viewModel.formTitle = CommonConstants.EDIT_LOCATION
+            guard let location = location else { return }
+            viewModel.location = location
         }
     }
     
@@ -46,6 +52,13 @@ class LocationFormViewController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        if viewModel.formTitle == CommonConstants.EDIT_LOCATION {
+            deleteLocationBtn.isHidden = false
+            setupData()
+        } else {
+            deleteLocationBtn.isHidden = true
+        }
     }
 
     private func setupUI() {
@@ -82,6 +95,17 @@ class LocationFormViewController: BaseController {
         setupCityPicker()
         setupDistrictPicker()
         setupWardPicker()
+    }
+    
+    private func setupData() {
+        guard let location = viewModel.location else { return }
+        nameLocationTextField.text = location.name
+        locationTypeTextField.text = location.type
+        cityTextField.text = location.city?.name
+        districtTextField.text = location.district?.name
+        wardTextField.text = location.ward?.name
+        addressStreetTextField.text = location.address
+        noteTextView.text = location.note
     }
     
     @IBAction func onClickedBackBtn(_ sender: UIButton) {
