@@ -93,6 +93,10 @@ class LocationFormViewModel {
         return locationService.updateLocation(location: location)
     }
     
+    func deleteLocation(_ locationId: String) -> Observable<Location> {
+        return locationService.deleleLocation(locationId: locationId)
+    }
+    
     func getCities() -> Observable<[City]> {
         return addressService.getAllCities()
     }

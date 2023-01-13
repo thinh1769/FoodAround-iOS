@@ -11,6 +11,8 @@ import RxCocoa
 
 protocol LocationFormViewControllerDelegate: AnyObject {
     func reloadDetailPopupViewAfterUpdateLocation(_ locationId: String)
+    
+    func dismissDetailPopupViewAfterDeleteLocation()
 }
 
 class LocationFormViewController: BaseController {
@@ -123,12 +125,23 @@ class LocationFormViewController: BaseController {
         } else {
             viewModel.updateLocation(location)
                 .subscribe { [weak self] location in
-                    guard let self = self else { return }
-                    self.delegate?.reloadDetailPopupViewAfterUpdateLocation(location.id ?? "")
+                    guard let self = self,
+                          let locationId = location.id
+                    else { return }
+                    self.delegate?.reloadDetailPopupViewAfterUpdateLocation(locationId)
                     self.navigationController?.popViewController(animated: true)
                 } onCompleted: {
                 }.disposed(by: viewModel.bag)
         }
+    }
+    
+    @IBAction func onClickedDeleteLocationBtn(_ sender: UIButton) {
+        guard let locationId = viewModel.location?.id else { return }
+        viewModel.deleteLocation(locationId).subscribe { [weak self] _ in
+            guard let self = self else { return }
+            self.delegate?.dismissDetailPopupViewAfterDeleteLocation()
+            self.navigationController?.popViewController(animated: true)
+        }.disposed(by: viewModel.bag)
     }
     
     @objc private func donePicker(sender: UIBarButtonItem) {

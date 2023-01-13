@@ -343,6 +343,9 @@
                     <state key="normal" image="trash" catalog="system">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="large"/>
                     </state>
+                    <connections>
+                        <action selector="onClickedDeleteLocationBtn:" destination="-1" eventType="touchUpInside" id="nVf-3f-hoR"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

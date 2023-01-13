@@ -271,6 +271,10 @@ extension HomeViewController: DetailPopupViewDelegate {
 }
 
 extension HomeViewController: LocationFormViewControllerDelegate {
+    func dismissDetailPopupViewAfterDeleteLocation() {
+        
+    }
+    
     func reloadDetailPopupViewAfterUpdateLocation(_ locationId: String) {
         self.addDetailView(locationId: locationId)
     }

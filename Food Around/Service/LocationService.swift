@@ -18,6 +18,10 @@ class LocationService: BaseService {
         return request(api: APIConstants.updateLocation.rawValue + (location.id ?? ""), method: .put, params: location)
     }
     
+    func deleleLocation(locationId: String) -> Observable<Location> {
+        return request(api: APIConstants.deleteLocation.rawValue + locationId, method: .delete)
+    }
+    
     func getAllLocation() -> Observable<[Location]> {
         return request(api: .getAllLocation)
     }
