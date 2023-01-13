@@ -32,13 +32,10 @@ class LocationFormViewModel {
     var note = ""
     var location: Location?
     
-    func config(formType: Int, location: Location?, lat: Double?, long: Double?) {
+    func config(formType: Int, location: Location?, lat: Double, long: Double) {
+        self.lat = lat
+        self.long = long
         if formType == FormType.add.rawValue {
-            guard let lat = lat,
-                  let long = long
-            else { return }
-            self.lat = lat
-            self.long = long
             self.formTitle = CommonConstants.ADD_NEW_LOCATION
         } else {
             guard let location = location,
@@ -90,6 +87,10 @@ class LocationFormViewModel {
     
     func addLocation(_ location: Location) -> Observable<Location> {
         return locationService.addLocation(location: location)
+    }
+    
+    func updateLocation(_ location: Location) -> Observable<Location> {
+        return locationService.updateLocation(location: location)
     }
     
     func getCities() -> Observable<[City]> {

@@ -9,6 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol LocationFormViewControllerDelegate: AnyObject {
+    func reloadDetailPopupViewAfterUpdateLocation(_ locationId: String)
+}
+
 class LocationFormViewController: BaseController {
 
     @IBOutlet private weak var nameLocationTextField: UITextField!
@@ -21,13 +25,14 @@ class LocationFormViewController: BaseController {
     @IBOutlet private weak var noteTextView: UITextView!
     @IBOutlet private weak var deleteLocationBtn: UIButton!
     
+    weak var delegate : LocationFormViewControllerDelegate?
     var locationTypePicker = UIPickerView()
     var cityPicker = UIPickerView()
     var districtPicker = UIPickerView()
     var wardPicker = UIPickerView()
     var viewModel = LocationFormViewModel()
     
-    func config(formType: Int, location: Location?, lat: Double?, long: Double?) {
+    func config(formType: Int, location: Location?, lat: Double, long: Double) {
         viewModel.config(formType: formType, location: location, lat: lat, long: long)
     }
     
@@ -106,14 +111,24 @@ class LocationFormViewController: BaseController {
         viewModel.addressStreet = addressStreetTextField.text!
         viewModel.note = noteTextView.text!
         
-        let location = Location(name: viewModel.nameLocation, type: viewModel.locationType.value[viewModel.selectedLocationType], address: viewModel.addressStreet, cityId: viewModel.city.value[viewModel.selectedCity].id, districtId: viewModel.district.value[viewModel.selectedDistrict].id, wardId: viewModel.ward.value[viewModel.selectedWard].id, note: viewModel.note, lat: viewModel.lat, long: viewModel.long)
+        let location = Location(id: viewModel.location?.id ?? "",name: viewModel.nameLocation, type: viewModel.locationType.value[viewModel.selectedLocationType], address: viewModel.addressStreet, cityId: viewModel.cityId, districtId: viewModel.districtId, wardId: viewModel.wardId, note: viewModel.note, lat: viewModel.lat, long: viewModel.long)
         
-        viewModel.addLocation(location)
-            .subscribe { [weak self] location in
-                guard let self = self else { return }
-                self.navigationController?.popViewController(animated: true)
-            } onCompleted: {
-            }.disposed(by: viewModel.bag)
+        if viewModel.formTitle == CommonConstants.ADD_NEW_LOCATION {
+            viewModel.addLocation(location)
+                .subscribe { [weak self] location in
+                    guard let self = self else { return }
+                    self.navigationController?.popViewController(animated: true)
+                } onCompleted: {
+                }.disposed(by: viewModel.bag)
+        } else {
+            viewModel.updateLocation(location)
+                .subscribe { [weak self] location in
+                    guard let self = self else { return }
+                    self.delegate?.reloadDetailPopupViewAfterUpdateLocation(location.id ?? "")
+                    self.navigationController?.popViewController(animated: true)
+                } onCompleted: {
+                }.disposed(by: viewModel.bag)
+        }
     }
     
     @objc private func donePicker(sender: UIBarButtonItem) {

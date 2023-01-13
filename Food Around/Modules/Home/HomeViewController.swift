@@ -264,7 +264,14 @@ extension HomeViewController: DetailPopupViewDelegate {
     
     func onClickedEditLocationButton(_ location: Location) {
         let vc = LocationFormViewController()
-        vc.config(formType: FormType.edit.rawValue, location: location, lat: nil, long: nil)
+        vc.delegate = self
+        vc.config(formType: FormType.edit.rawValue, location: location, lat: location.lat, long: location.long)
         navigateTo(vc)
+    }
+}
+
+extension HomeViewController: LocationFormViewControllerDelegate {
+    func reloadDetailPopupViewAfterUpdateLocation(_ locationId: String) {
+        self.addDetailView(locationId: locationId)
     }
 }
