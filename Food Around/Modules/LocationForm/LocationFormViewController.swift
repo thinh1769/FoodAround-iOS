@@ -28,18 +28,7 @@ class LocationFormViewController: BaseController {
     var viewModel = LocationFormViewModel()
     
     func config(formType: Int, location: Location?, lat: Double?, long: Double?) {
-        if formType == FormType.add.rawValue {
-            viewModel.formTitle = CommonConstants.ADD_NEW_LOCATION
-            guard let lat = lat,
-                  let long = long
-            else { return }
-            viewModel.lat = lat
-            viewModel.long = long
-        } else {
-            viewModel.formTitle = CommonConstants.EDIT_LOCATION
-            guard let location = location else { return }
-            viewModel.location = location
-        }
+        viewModel.config(formType: formType, location: location, lat: lat, long: long)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +60,7 @@ class LocationFormViewController: BaseController {
                   let city = self.cityTextField.text,
                   !(city.isEmpty)
             else { return }
-            self.viewModel.getDistrictsByCityId(cityId: self.viewModel.city.value[self.viewModel.selectedCity].id)
+            self.viewModel.getDistrictsByCityId(cityId: self.viewModel.cityId)
                 .subscribe { districts in
                     self.viewModel.district.accept(districts)
                 }.disposed(by: self.viewModel.bag)
@@ -83,7 +72,7 @@ class LocationFormViewController: BaseController {
                   let district = self.districtTextField.text,
                   !(district.isEmpty)
             else { return }
-            self.viewModel.getWardsByDistrictId(districtId: self.viewModel.district.value[self.viewModel.selectedDistrict].id)
+            self.viewModel.getWardsByDistrictId(districtId: self.viewModel.districtId)
                 .subscribe { wards in
                     self.viewModel.ward.accept(wards)
                 }.disposed(by: self.viewModel.bag)
@@ -137,6 +126,7 @@ class LocationFormViewController: BaseController {
             districtPicker.reloadInputViews()
             wardTextField.text = ""
             wardPicker.reloadInputViews()
+            viewModel.ward.accept([])
         case PickerTag.district.rawValue:
             guard let city = cityTextField.text,
                   !(city.isEmpty)
