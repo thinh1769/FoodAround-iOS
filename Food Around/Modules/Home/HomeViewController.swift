@@ -28,10 +28,6 @@ class HomeViewController: BaseController {
     private let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
     
     override func viewWillAppear(_ animated: Bool) {
-        removeAnnotation(isRemoveAll: true)
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
         hidePinNewLocation(true)
         
         viewModel.getAllLocation().subscribe { [weak self] locations in
@@ -47,6 +43,11 @@ class HomeViewController: BaseController {
     }
 
     private func setupUI() {
+        removeAnnotation(isRemoveAll: true)
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
         isEnabledTouchDismissKeyboard = true
         mapView.delegate = self
         searchTextField.rx.controlEvent([.editingChanged]).subscribe { [weak self] _ in
@@ -60,6 +61,11 @@ class HomeViewController: BaseController {
                 self.pinNewLocationBtn.isHidden = false
                 self.currentLocationBtn.isHidden = false
             }
+        }.disposed(by: viewModel.bag)
+        
+        searchTextField.rx.controlEvent([.editingDidBegin]).subscribe { [weak self] _ in
+            guard let self = self else { return }
+            self.dismissDetailPopupView()
         }.disposed(by: viewModel.bag)
         
         searchView.layer.masksToBounds = false
@@ -88,7 +94,11 @@ class HomeViewController: BaseController {
     
     @objc private func handleTapGesture() {
         view.window?.endEditing(true)
-        for subview in view.subviews{
+        dismissDetailPopupView()
+    }
+    
+    private func dismissDetailPopupView() {
+        for subview in view.subviews {
             if subview.tag == SubviewTag.detailView.rawValue {
                 UIView.animateKeyframes(withDuration: 0.4, delay: 0) {
                     subview.transform = CGAffineTransform(translationX: 0, y: 260)
@@ -272,7 +282,12 @@ extension HomeViewController: DetailPopupViewDelegate {
 
 extension HomeViewController: LocationFormViewControllerDelegate {
     func dismissDetailPopupViewAfterDeleteLocation() {
+        dismissDetailPopupView()
         
+        removeAnnotation(isRemoveAll: true)
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     func reloadDetailPopupViewAfterUpdateLocation(_ locationId: String) {
