@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,12 +15,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Food_Around" customModuleProvider="target">
             <connections>
                 <outlet property="addNewLocationBtn" destination="iaa-SZ-Ak3" id="bY6-et-wJa"/>
+                <outlet property="backToMapViewBtn" destination="buf-B4-Imp" id="ScT-y9-41m"/>
                 <outlet property="cancelBtn" destination="yUC-nz-2kh" id="Tla-9Y-MAL"/>
                 <outlet property="currentLocationBtn" destination="pR6-qb-lCE" id="kwZ-me-FDk"/>
+                <outlet property="locationImage" destination="I9Z-WP-NqR" id="dEm-Uu-nvU"/>
                 <outlet property="mapView" destination="ymY-FA-tFc" id="GZj-i7-qVo"/>
                 <outlet property="pinNewLocationBtn" destination="GuV-Sk-BLg" id="ULy-ri-sCF"/>
                 <outlet property="pinNewLocationImage" destination="B1P-k4-zZH" id="KHw-7S-oSZ"/>
                 <outlet property="pinPointView" destination="GJi-kP-R98" id="7s1-RO-nzo"/>
+                <outlet property="searchTableView" destination="KnX-R9-wZp" id="zzN-uJ-AuR"/>
                 <outlet property="searchTextField" destination="WCy-aa-ptL" id="nCp-kQ-DKf"/>
                 <outlet property="searchView" destination="ELH-AV-oj6" id="ntO-Ds-DGP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -68,18 +72,36 @@
                                 <action selector="onClickedUserInfoBtn:" destination="-1" eventType="touchUpInside" id="snU-Mq-7Oh"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buf-B4-Imp" userLabel="backToMapViewBtn">
+                            <rect key="frame" x="5" y="5" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="za7-S2-5z7"/>
+                            </constraints>
+                            <color key="tintColor" name="themeColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal">
+                                <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                            </state>
+                            <connections>
+                                <action selector="onClickedBackToMapViewBtn:" destination="-1" eventType="touchUpInside" id="xoD-Uq-fVK"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="buf-B4-Imp" firstAttribute="top" secondItem="ELH-AV-oj6" secondAttribute="top" constant="5" id="5jV-Lr-J5R"/>
                         <constraint firstItem="WCy-aa-ptL" firstAttribute="leading" secondItem="I9Z-WP-NqR" secondAttribute="trailing" id="A6y-XK-WrC"/>
                         <constraint firstAttribute="height" constant="50" id="GbZ-VQ-GtL"/>
                         <constraint firstAttribute="trailing" secondItem="79Q-c1-gbb" secondAttribute="trailing" id="OKl-ck-rWu"/>
                         <constraint firstItem="WCy-aa-ptL" firstAttribute="top" secondItem="ELH-AV-oj6" secondAttribute="top" id="OeE-WO-YfO"/>
+                        <constraint firstAttribute="bottom" secondItem="buf-B4-Imp" secondAttribute="bottom" constant="5" id="PPY-kl-Ix5"/>
                         <constraint firstAttribute="bottom" secondItem="79Q-c1-gbb" secondAttribute="bottom" id="Uoc-KX-UhB"/>
                         <constraint firstAttribute="bottom" secondItem="WCy-aa-ptL" secondAttribute="bottom" id="am3-VE-D5Q"/>
                         <constraint firstItem="79Q-c1-gbb" firstAttribute="leading" secondItem="WCy-aa-ptL" secondAttribute="trailing" id="j3r-0j-jtw"/>
                         <constraint firstItem="I9Z-WP-NqR" firstAttribute="leading" secondItem="ELH-AV-oj6" secondAttribute="leading" constant="5" id="jdE-PA-sQH"/>
                         <constraint firstAttribute="bottom" secondItem="I9Z-WP-NqR" secondAttribute="bottom" constant="5" id="lHq-u8-pp8"/>
+                        <constraint firstItem="buf-B4-Imp" firstAttribute="leading" secondItem="ELH-AV-oj6" secondAttribute="leading" constant="5" id="oJ1-kO-3WG"/>
                         <constraint firstItem="I9Z-WP-NqR" firstAttribute="top" secondItem="ELH-AV-oj6" secondAttribute="top" constant="5" id="w14-iJ-BqQ"/>
                         <constraint firstItem="79Q-c1-gbb" firstAttribute="top" secondItem="ELH-AV-oj6" secondAttribute="top" id="w1E-RN-ydx"/>
                     </constraints>
@@ -172,6 +194,10 @@
                         <action selector="onClickedAddNewLocation:" destination="-1" eventType="touchUpInside" id="xxf-Vd-2kj"/>
                     </connections>
                 </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KnX-R9-wZp">
+                    <rect key="frame" x="0.0" y="117" width="390" height="727"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -183,8 +209,12 @@
                 <constraint firstItem="ELH-AV-oj6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="5l3-BO-LWd"/>
                 <constraint firstAttribute="bottom" secondItem="ymY-FA-tFc" secondAttribute="bottom" id="665-cG-3pw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iaa-SZ-Ak3" secondAttribute="bottom" constant="10" id="7gN-zY-tcG"/>
+                <constraint firstAttribute="bottom" secondItem="KnX-R9-wZp" secondAttribute="bottom" id="Bpr-gV-WGu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pR6-qb-lCE" secondAttribute="bottom" constant="25" id="Ipw-Ew-byl"/>
+                <constraint firstItem="KnX-R9-wZp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Itc-1p-CF3"/>
                 <constraint firstItem="B1P-k4-zZH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MKW-bJ-4Xn"/>
+                <constraint firstItem="KnX-R9-wZp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="N7Y-07-V4U"/>
+                <constraint firstItem="KnX-R9-wZp" firstAttribute="top" secondItem="ELH-AV-oj6" secondAttribute="bottom" constant="10" id="NoN-jI-m57"/>
                 <constraint firstItem="iaa-SZ-Ak3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="90" id="S9d-cE-knC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pR6-qb-lCE" secondAttribute="trailing" constant="20" id="TlG-Pq-mVd"/>
                 <constraint firstItem="ymY-FA-tFc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="acB-uG-V5M"/>
@@ -197,10 +227,11 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GuV-Sk-BLg" secondAttribute="trailing" constant="20" id="yI2-dv-Vqz"/>
                 <constraint firstItem="GJi-kP-R98" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="5" id="yXb-fH-jrf"/>
             </constraints>
-            <point key="canvasLocation" x="255" y="11"/>
+            <point key="canvasLocation" x="-688" y="-7"/>
         </view>
     </objects>
     <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="location-icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>

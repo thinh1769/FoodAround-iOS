@@ -45,6 +45,8 @@
 		FCB662A9296BFCA800ABB8A8 /* DetailPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB662A8296BFCA800ABB8A8 /* DetailPopupView.xib */; };
 		FCB662AB296BFCD400ABB8A8 /* DetailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB662AA296BFCD400ABB8A8 /* DetailPopupView.swift */; };
 		FCB662AD296EBAA700ABB8A8 /* DetailPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB662AC296EBAA600ABB8A8 /* DetailPopupViewModel.swift */; };
+		FCB662B129755A7B00ABB8A8 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB662AF29755A7900ABB8A8 /* SearchTableViewCell.swift */; };
+		FCB662B229755A7B00ABB8A8 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB662B029755A7900ABB8A8 /* SearchTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		FCB662A8296BFCA800ABB8A8 /* DetailPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPopupView.xib; sourceTree = "<group>"; };
 		FCB662AA296BFCD400ABB8A8 /* DetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupView.swift; sourceTree = "<group>"; };
 		FCB662AC296EBAA600ABB8A8 /* DetailPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupViewModel.swift; sourceTree = "<group>"; };
+		FCB662AF29755A7900ABB8A8 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		FCB662B029755A7900ABB8A8 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				FC8D0B4F295157B100B229FA /* BaseController.swift */,
+				FCB662AE29755A2500ABB8A8 /* SearchTableViewCell */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -296,6 +301,15 @@
 			path = DetailPopup;
 			sourceTree = "<group>";
 		};
+		FCB662AE29755A2500ABB8A8 /* SearchTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FCB662AF29755A7900ABB8A8 /* SearchTableViewCell.swift */,
+				FCB662B029755A7900ABB8A8 /* SearchTableViewCell.xib */,
+			);
+			path = SearchTableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -365,6 +379,7 @@
 				FCB661C9295C1DE900ABB8A8 /* UserInfoViewController.xib in Resources */,
 				FC8D0B5A2952ACF500B229FA /* HomeViewController.xib in Resources */,
 				FC788E5F29545CA100425AB7 /* LocationFormViewController.xib in Resources */,
+				FCB662B229755A7B00ABB8A8 /* SearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +442,7 @@
 				FCB661D1295C478200ABB8A8 /* HTTPMethod+Ext.swift in Sources */,
 				FCB661D3295D8C6A00ABB8A8 /* AddressService.swift in Sources */,
 				FCA38CCC295047C500CD8832 /* AppDelegate.swift in Sources */,
+				FCB662B129755A7B00ABB8A8 /* SearchTableViewCell.swift in Sources */,
 				FCB661C2295AC77A00ABB8A8 /* SignUpViewModel.swift in Sources */,
 				FCB661BE295AA12200ABB8A8 /* ServiceConstants.swift in Sources */,
 				FCB661CF295C3ECF00ABB8A8 /* LocationService.swift in Sources */,

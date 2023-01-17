@@ -22,6 +22,9 @@ class HomeViewController: BaseController {
     @IBOutlet private weak var pinNewLocationImage: UIImageView!
     @IBOutlet private weak var searchView: UIView!
     @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var searchTableView: UITableView!
+    @IBOutlet private weak var locationImage: UIImageView!
+    @IBOutlet private weak var backToMapViewBtn: UIButton!
     
     private var viewModel = HomeViewModel()
     private var locationManager = CLLocationManager()
@@ -50,16 +53,13 @@ class HomeViewController: BaseController {
         
         isEnabledTouchDismissKeyboard = true
         mapView.delegate = self
+        
         searchTextField.rx.controlEvent([.editingChanged]).subscribe { [weak self] _ in
             guard let self = self else { return }
             if self.searchTextField.text?.count != 0 {
-                self.mapView.isHidden = true
-                self.pinNewLocationBtn.isHidden = true
-                self.currentLocationBtn.isHidden = true
+                self.showSearchView(isShow: true)
             } else {
-                self.mapView.isHidden = false
-                self.pinNewLocationBtn.isHidden = false
-                self.currentLocationBtn.isHidden = false
+                self.showSearchView(isShow: false)
             }
         }.disposed(by: viewModel.bag)
         
@@ -67,6 +67,8 @@ class HomeViewController: BaseController {
             guard let self = self else { return }
             self.dismissDetailPopupView()
         }.disposed(by: viewModel.bag)
+        
+        setupTableView()
         
         searchView.layer.masksToBounds = false
         searchView.layer.borderColor = UIColor.lightGray.cgColor
@@ -92,6 +94,22 @@ class HomeViewController: BaseController {
         self.mapView.addGestureRecognizer(tapGesture)
     }
     
+    private func setupTableView() {
+        backToMapViewBtn.isHidden = true
+        searchTableView.isHidden = true
+        searchTableView.separatorStyle = .none
+        searchTableView.rowHeight = 80
+        
+        searchTableView.register(SearchTableViewCell.nib, forCellReuseIdentifier: SearchTableViewCell.reusableIdentifier)
+        
+        viewModel.location.asObservable()
+            .bind(to: searchTableView.rx
+                .items(cellIdentifier: SearchTableViewCell.reusableIdentifier, cellType: SearchTableViewCell.self)) { (index, element, cell) in
+                    cell.nameLabel.text = element.name
+                    cell.addressLabel.text = "\(element.address), \(element.ward?.name ?? ""), \(element.district?.name ?? ""), \(element.city?.name ?? "")"
+                }.disposed(by: viewModel.bag)
+    }
+    
     @objc private func handleTapGesture() {
         view.window?.endEditing(true)
         dismissDetailPopupView()
@@ -107,6 +125,10 @@ class HomeViewController: BaseController {
                 }
             }
         }
+    }
+    
+    @IBAction func onClickedBackToMapViewBtn(_ sender: UIButton) {
+        showSearchView(isShow: false)
     }
     
     @IBAction func onClickedUserInfoBtn(_ sender: UIButton) {
@@ -130,6 +152,15 @@ class HomeViewController: BaseController {
     
     @IBAction func onClickedCancelBtn(_ sender: UIButton) {
         hidePinNewLocation(true)
+    }
+    
+    private func showSearchView(isShow: Bool) {
+        mapView.isHidden = isShow
+        pinNewLocationBtn.isHidden = isShow
+        currentLocationBtn.isHidden = isShow
+        searchTableView.isHidden = !isShow
+        locationImage.isHidden = isShow
+        backToMapViewBtn.isHidden = !isShow
     }
     
     private func hidePinNewLocation(_ isShow: Bool) {
