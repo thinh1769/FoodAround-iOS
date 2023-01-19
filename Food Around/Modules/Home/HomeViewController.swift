@@ -55,9 +55,14 @@ class HomeViewController: BaseController {
         mapView.delegate = self
         
         searchTextField.rx.controlEvent([.editingChanged]).subscribe { [weak self] _ in
-            guard let self = self else { return }
-            if self.searchTextField.text?.count != 0 {
+            guard let self = self,
+                  let text = self.searchTextField.text
+            else { return }
+            if text.count != 0 {
                 self.showSearchView(isShow: true)
+                self.viewModel.findLocation(searchString: text).subscribe { locations in
+                    self.viewModel.searchedLocation.accept(locations)
+                }.disposed(by: self.viewModel.bag)
             } else {
                 self.showSearchView(isShow: false)
             }
@@ -102,12 +107,22 @@ class HomeViewController: BaseController {
         
         searchTableView.register(SearchTableViewCell.nib, forCellReuseIdentifier: SearchTableViewCell.reusableIdentifier)
         
-        viewModel.location.asObservable()
+        viewModel.searchedLocation.asObservable()
             .bind(to: searchTableView.rx
                 .items(cellIdentifier: SearchTableViewCell.reusableIdentifier, cellType: SearchTableViewCell.self)) { (index, element, cell) in
                     cell.nameLabel.text = element.name
                     cell.addressLabel.text = "\(element.address), \(element.ward?.name ?? ""), \(element.district?.name ?? ""), \(element.city?.name ?? "")"
                 }.disposed(by: viewModel.bag)
+        
+        searchTableView.rx
+            .modelSelected(Location.self)
+            .subscribe(onNext: { [weak self] element in
+                guard let self = self else { return }
+                self.showSearchView(isShow: false)
+                self.moveCameraToLocation(element.lat, element.long)
+                self.addDetailView(locationId: element.id ?? "")
+            })
+            .disposed(by: viewModel.bag)
     }
     
     @objc private func handleTapGesture() {
@@ -178,15 +193,16 @@ extension HomeViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             locationManager.stopUpdatingLocation()
-            moveCameraToLocation(location)
+            moveCameraToLocation(location.coordinate.latitude, location.coordinate.longitude)
+            let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            pinUserLocation(coordinate)
         }
     }
     
-    private func moveCameraToLocation(_ location: CLLocation) {
-        let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    private func moveCameraToLocation(_ lat: Double, _ long: Double) {
+        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: false)
-        pinUserLocation(coordinate)
     }
     
     private func pinUserLocation(_ coordinate: CLLocationCoordinate2D) {

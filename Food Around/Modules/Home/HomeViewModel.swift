@@ -13,9 +13,13 @@ class HomeViewModel {
     let bag = DisposeBag()
     let locationService = LocationService()
     var location = BehaviorRelay<[Location]>(value: [])
+    var searchedLocation = BehaviorRelay<[Location]>(value: [])
     
     func getAllLocation() -> Observable<[Location]> {
         return locationService.getAllLocation()
     }
     
+    func findLocation(searchString: String) -> Observable<[Location]> {
+        return locationService.findLocation(searchString: searchString)
+    }
 }
